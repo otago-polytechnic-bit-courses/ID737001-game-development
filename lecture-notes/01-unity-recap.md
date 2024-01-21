@@ -48,7 +48,7 @@ Click on **Apply** to apply the changes to the texture.
 
 ![](../resources/img/01/02-texture-importer-preset/06.png)
 
-![](../resources/img/01/02-texture-importer-preset/06.png)
+![](../resources/img/01/02-texture-importer-preset/07.png)
 
 
 
