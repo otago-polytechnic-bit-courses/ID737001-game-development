@@ -48,9 +48,23 @@ Click on **Apply** to apply the changes to the texture.
 
 ![](../resources/img/01/02-texture-importer-preset/06.png)
 
+In the **Presets** directory, you will see the preset file. You can now use this preset to set the default settings for all textures in the project.
+
 ![](../resources/img/01/02-texture-importer-preset/07.png)
 
+## Adding Assets
 
+## Configuring Input System
+
+## Cinemachine
+
+## Background
+
+## Player
+
+## Camera
+
+## 
 
 ```cs
 using System.Collections;
