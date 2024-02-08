@@ -50,7 +50,17 @@ Click on **Apply** to apply the changes to the texture.
 
 ![](../resources/img/01/02-texture-importer-preset/07.png)
 
+## Adding Assets
 
+## Configuring Input System
+
+## Configuring Cinemachine
+
+## Background
+
+## Player Character
+
+## Configuring 2D Camera
 
 ```cs
 using System.Collections;
