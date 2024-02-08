@@ -53,20 +53,8 @@ In the **Presets** directory, you will see the preset file. You can now use this
 ![](../resources/img/01/02-texture-importer-preset/07.png)
 
 ## Adding Assets
-<<<<<<< HEAD
 
-## Configuring Input System
-
-## Configuring Cinemachine
-
-## Background
-
-## Player Character
-
-## Configuring 2D Camera
-=======
-
-## Configuring Input System
+## Input System
 
 ## Cinemachine
 
@@ -75,10 +63,6 @@ In the **Presets** directory, you will see the preset file. You can now use this
 ## Player
 
 ## Camera
-
-## 
->>>>>>> ac95b3391f501f2e7ed37aee67d6a7fd4433270a
-
 ```cs
 using System.Collections;
 using System.Collections.Generic;
