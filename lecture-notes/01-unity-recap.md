@@ -18,6 +18,8 @@ In this lecture, we will cover a variety of topics while building the foundation
 
 ![](../resources/img/01/01-setting-up-a-unity-project/03.png)
 
+What is the **Universal Render Pipeline (URP)**? The **Universal Render Pipeline (URP)** is a prebuilt **Scriptable Render Pipeline**, made by Unity. It is optimised for performance and is designed to be used on all platforms. It is a great choice for 2D games.
+
 ## Texture Importer Preset
 
 When importing textures into Unity, you can use the **Texture Importer Preset** to set the default settings for the texture. This is useful if you want to set the default settings for all textures in the project. In this project, you will use textures that are 16x16 in size.
@@ -54,15 +56,94 @@ In the **Presets** directory, you will see the preset file. You can now use this
 
 ## Adding Assets
 
-## Input System
+In the **assessments > project-game-development-demo** directory, you will find two directories called **Art** and **UI**. Copy the contents of these directories into the **Assets** directory. Feel free to add any additional assets you want to use.
+
+![](../resources/img/01/03-adding-assets/01.png)
 
 ## Cinemachine
 
+**Cinemachine** is a powerful and flexible camera system for Unity. It is a free package that you can install from the Unity Package Manager.
+
+1. Navigate to the **Window > Package Manager** window. 
+
+![](../resources/img/01/04-cinemachine-and-input-system/01.png)
+
+2. Search for **Cinemachine** and install the package.
+
+![](../resources/img/01/04-cinemachine-and-input-system/02.png)
+
+![](../resources/img/01/04-cinemachine-and-input-system/03.png)
+
+**Resource:** <https://docs.unity3d.com/Packages/com.unity.cinemachine@3.0/manual/index.html>
+
+## Input System
+
+The **Input System** is a package that provides an easy way to manage input in Unity. Inputs include keyboard, mouse and gamepad. It is a free package that you can install from the Unity Package Manager.
+
+1. Search for **Input System** and install the package.
+
+![](../resources/img/01/04-cinemachine-and-input-system/04.png)
+
+2. You will be prompted to restart Unity. Click on **Yes** to restart Unity.
+
+![](../resources/img/01/04-cinemachine-and-input-system/05.png)
+
+Why do you need to restart Unity? The Input System package requires a restart to be fully installed.
+
+**Resource:** <https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/index.html>
+
 ## Background
+
+1. In the **Art** directory, you will find a directory called **Tilesets**. This directory contains the backgrounds, individual tiles and props.
+
+![](../resources/img/01/05-background/01.png)
+
+2. In the **Scenes** directory, rename the **SampleScene** to **GameplayScene**.
+
+![](../resources/img/01/05-background/02.png)
+
+3. Create a new **GameObject** called **Background**. This will be the parent object for the backgrounds.
+
+![](../resources/img/01/05-background/03.png)
+
+4. Inside the **Background** object, create a new **GameObject** called **Background One**. Add a **Sprite Renderer** component to the **Background One** object. Set the **Sprite** property to an appropriate background sprite. These can be found in the **Tilesets > Backgrounds** directory.
+
+![](../resources/img/01/05-background/04.png)
+
+What is the **Sprite Renderer** component? The **Sprite Renderer** component renders the sprite on the screen. It is a required component for any object that uses a sprite.
+
+5. Repeat the process for the **Background Two** object.
+
+![](../resources/img/01/05-background/05.png)
+
+6. Again, repeat the process for the **Background Three** object.
+
+![](../resources/img/01/05-background/06.png)
+
+Pay careful attention to the **Order in Layer** property of the **Sprite Renderer** component. This property determines the order in which the sprites are rendered. The higher the value, the further back the sprite will be rendered.
 
 ## Player
 
-## Camera
+1. Create a new **GameObject** called **Player**. Add a **Sprite Renderer** component to the **Player** object. Set the **Sprite** property to an appropriate player sprite. These can be found in the **Art > Adventurer** directory. Also, add a **Rigidbody 2D** component to the **Player** object.
+
+![](../resources/img/01/06-player/01.png)
+
+What is the **Rigidbody 2D** component? The **Rigidbody 2D** component is a physics component that allows the object to be affected by forces and collisions. It is a required component for any object that uses physics.
+
+2. In the **Assets** directory, create a new directory called **Characters**. In the **Characters** directory, create two new directories called **Enemies** and **Player**.
+
+![](../resources/img/01/06-player/02.png)
+
+3. In the **Player** directory, create a **Prefab** of the **Player** object. This will allow you to reuse the player object.
+
+![](../resources/img/01/06-player/03.png)
+
+4. In the **Assets > Scripts** directory, create a new script called **PlayerController.cs**.
+
+![](../resources/img/01/06-player/04.png)
+
+5. Open the **PlayerController.cs** script and add the following code:
+
 ```cs
 using System.Collections;
 using System.Collections.Generic;
@@ -77,7 +158,13 @@ public class PlayerController : MonoBehaviour
 
     public float walkSpeed = 5f;
     
-    public bool IsMoving { get; private set; }
+    [SerializeField]
+    private bool _isMoving = false;
+
+    public bool IsMoving {
+        get { return _isMoving; }
+        set { _isMoving = value; }
+    }
 
     private void Awake()
     {
@@ -108,6 +195,16 @@ public class PlayerController : MonoBehaviour
     } 
 }
 ```
+
+6. Add a **Player Input** component to the **Player** object. This component is used to handle input from the player.
+
+![](../resources/img/01/06-player/05.png)
+
+7. Click on **Create Actions...** to create a new input actions asset. This should be saved in the **Assets > Characters > Player** directory. This asset will contain the input actions for the player.
+
+
+## Camera
+
 
 ```cs
 using System.Collections;
