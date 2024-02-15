@@ -168,29 +168,29 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        // Get the Rigidbody2D component
         rb = GetComponent<Rigidbody2D>();
     }
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() {}
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() {}
 
     private void FixedUpdate() 
     {
+        // Move the player
         rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
     }
 
+    // This event will be called when the player moves
     public void OnMove(InputAction.CallbackContext context)
     {
+        // Get the move input
         moveInput = context.ReadValue<Vector2>();
+        
+        // Set the is moving flag
         IsMoving = moveInput != Vector2.zero;
     } 
 }
@@ -200,11 +200,37 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/06-player/05.png)
 
-7. Click on **Create Actions...** to create a new input actions asset. This should be saved in the **Assets > Characters > Player** directory. This asset will contain the input actions for the player.
+7. Click on **Create Actions...** to create a new input actions asset. Name it **PlayerInputActions**. This should be saved in the **Assets > Characters > Player** directory. This asset will contain the input actions for the player.
 
+![](../resources/img/01/06-player/06.png)
+
+8. Change **Fire** to **Attack**.
+
+![](../resources/img/01/06-player/07.png)
+
+9. In the **Player Input** component, set the **Actions** property to the **PlayerInputActions** asset.
+
+![](../resources/img/01/06-player/08.png)
+
+10. Apply the **PlayerController.cs** script to the **Player** object.
+
+![](../resources/img/01/06-player/09.png)
+
+11. In the **Player Input** component, set the **Events > Player > Move** property to the **PlayerController > OnMove** method.
+
+![](../resources/img/01/06-player/10.png)
 
 ## Camera
 
+1. In the **Hierarchy** window, create a new **2D Camera** called **Virtual Camera**. 
+
+![](../resources/img/01/07-camera/01.png)
+
+2. Add a **Cinemachine Pixel Perfect** component to the **Virtual Camera** object. This component is used to make the camera pixel perfect meaning the camera will render the pixels in the game at the correct size.
+
+![](../resources/img/01/07-camera/02.png)
+
+3. Make sure the **Transform** component of the **Virtual Camera** object's **Position** property is set to **(0, 0, -10)**.
 
 ```cs
 using System.Collections;
