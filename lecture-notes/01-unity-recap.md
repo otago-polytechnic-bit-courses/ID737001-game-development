@@ -18,7 +18,7 @@ In this lecture, we will cover a variety of topics while building the foundation
 
 ![](../resources/img/01/01-setting-up-a-unity-project/03.png)
 
-What is the **Universal Render Pipeline (URP)**? The **Universal Render Pipeline (URP)** is a prebuilt **Scriptable Render Pipeline**, made by Unity. It is optimised for performance and is designed to be used on all platforms. It is a great choice for 2D games.
+The **Universal Render Pipeline (URP)** is a prebuilt **Scriptable Render Pipeline**, made by Unity. It is optimised for performance and is designed to be used on all platforms. It is a great choice for 2D games.
 
 ## Texture Importer Preset
 
@@ -88,7 +88,7 @@ The **Input System** is a package that provides an easy way to manage input in U
 
 ![](../resources/img/01/04-cinemachine-and-input-system/05.png)
 
-Why do you need to restart Unity? The Input System package requires a restart to be fully installed.
+The Input System package requires a restart to be fully installed.
 
 **Resource:** <https://docs.unity3d.com/Packages/com.unity.inputsystem@1.8/manual/index.html>
 
@@ -110,7 +110,7 @@ Why do you need to restart Unity? The Input System package requires a restart to
 
 ![](../resources/img/01/05-background/04.png)
 
-What is the **Sprite Renderer** component? The **Sprite Renderer** component renders the sprite on the screen. It is a required component for any object that uses a sprite.
+The **Sprite Renderer** component renders the sprite on the screen. It is a required component for any object that uses a sprite.
 
 5. Repeat the process for the **Background Two** object.
 
@@ -128,7 +128,7 @@ Pay careful attention to the **Order in Layer** property of the **Sprite Rendere
 
 ![](../resources/img/01/06-player/01.png)
 
-What is the **Rigidbody 2D** component? The **Rigidbody 2D** component is a physics component that allows the object to be affected by forces and collisions. It is a required component for any object that uses physics.
+The **Rigidbody 2D** component is a physics component that allows the object to be affected by forces and collisions. It is a required component for any object that uses physics.
 
 2. In the **Assets** directory, create a new directory called **Characters**. In the **Characters** directory, create two new directories called **Enemies** and **Player**.
 
@@ -234,6 +234,11 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/07-camera/03.png)
 
+## Parallax Effect
+
+**Parallax Effect** is a technique used in 2D games to create the illusion of depth by moving the background at a different speed than the foreground. This creates a sense of depth and immersion in the game.
+
+1. In the **Assets > Scripts** directory, create a new script called **ParallaxEffect.cs**. Add the following code to the script:
 
 ```cs
 using System.Collections;
@@ -249,7 +254,7 @@ public class ParallaxEffect : MonoBehaviour
     float startingZ;
 
     Vector2 cameraMoveSinceStart => (Vector2)camera.transform.position - startPosition;
-    float zDistanceFromTarget => transform.position.z - target.transform.position.z;
+    float zDistanceFromTarget => transform.position.z - target.transform.position.z;    
     float clippingPlane => (camera.transform.position.z + (zDistanceFromTarget > 0 ? camera.farClipPlane : camera.nearClipPlane));
     float parallaxFactor => Mathf.Abs(zDistanceFromTarget) / clippingPlane;
 
@@ -268,3 +273,171 @@ public class ParallaxEffect : MonoBehaviour
     }
 }
 ```
+
+2. Apply the **ParallaxEffect.cs** script to the **Background One** object.
+
+![](../resources/img/01/08-parallax-effect/01.png)
+
+3. Repeat the process for the **Background Two** object.
+
+![](../resources/img/01/08-parallax-effect/02.png)
+
+4. Again, repeat the process for the **Background Three** object.
+
+![](../resources/img/01/08-parallax-effect/03.png)
+
+## Animator
+
+**Animator** is a powerful tool in Unity that allows you to create animations for your game. It is used to animate the player, enemies, backgrounds and more.
+
+1. Apply the **Animator** component to the **Player** object.
+
+![](../resources/img/01/09-animator/01.png)
+
+2. In the **Assets > Characters > Player** directory, create a new **Animator Controller** called **PlayerAnimationController**. This will be used to control the animations.
+
+![](../resources/img/01/09-animator/02.png)
+
+3. In the **Animator** component, set the **Controller** property to the **PlayerAnimationController**.
+
+![](../resources/img/01/09-animator/03.png)
+
+4. Open the **Animation** window by clicking on **Window > Animation > Animation**.
+
+![](../resources/img/01/09-animator/04.png)
+
+5. Click the **Create** button to create a new animation. 
+
+![](../resources/img/01/09-animator/05.png)
+
+6. You should see the following **Animation** window. Create a new **Animation Clip** called **PlayerIdleAnimation**. This will be used to animate the player when they are idle.
+
+![](../resources/img/01/09-animator/06.png)
+
+7. Show the sample rate by clicking on the **Show Sample Rate**. This will show the sample rate of the animation. 
+
+![](../resources/img/01/09-animator/07.png)
+
+8. Set the sample rate to 10. This means that the animation will play at 10 frames per second.
+
+![](../resources/img/01/09-animator/08.png)
+
+9. Drag and drop the following sprites into the **Dopesheet**:
+    * adventurer-idle-0
+    * adventurer-idle-1
+    * adventurer-idle-2
+    * adventurer-idle-3
+
+The **Dopesheet** is a timeline that shows the keyframes of the animation. 
+
+![](../resources/img/01/09-animator/09.png)
+
+10. Create two more animations called **PlayerWalkAnimation** and **PlayerRunAnimation**. These will be used to animate the player when they are walking and running.
+
+![](../resources/img/01/09-animator/10.png)
+
+11. In the **Animator** window, create a new **Sub-State Machine** called **GroundStates**. This will be used to control the ground states of the player.
+
+A **Sub-State Machine** is a state machine that is nested inside another state machine. It is used to organise the states of the animator.
+
+![](../resources/img/01/09-animator/11.png)
+
+12. Drag and drop the **PlayerIdleAnimation**, **PlayerWalkAnimation** and **PlayerRunAnimation** into the **GroundStates**.
+
+![](../resources/img/01/09-animator/12.png)
+
+13. In the **GroundStates**, set the **PlayerIdleAnimation** as the **Layer Default State**. 
+
+![](../resources/img/01/09-animator/13.png)
+
+14. Create two new **Parameters** called **IsMoving** and **IsRunning**. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsMoving** and **IsRunning** parameters in the **Conditions**. Set the **IsMoving** and **IsRunning** to **true**.
+
+![](../resources/img/01/09-animator/14.png)
+
+15. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsMoving** and **IsRunning** parameters in the **Conditions**. Set the **IsMoving** to **true** and **IsRunning** to **false**.
+
+![](../resources/img/01/09-animator/15.png)
+
+16. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerIdleAnimation**. Add the **IsMoving** parameter in the **Conditions**. Set the **IsMoving** to **false**. Repeat the process for the **PlayerWalkAnimation**.
+
+![](../resources/img/01/09-animator/16.png)
+
+17. Right-click on **PlayerWalkAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **true**. 
+
+![](../resources/img/01/09-animator/17.png)
+
+18. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **false**. 
+
+![](../resources/img/01/09-animator/18.png)
+
+19. In the **PlayerInputActions** asset, create a new action called **Run**. Set the **Binding > Path** to **Left Shift [Keyboard]**.
+
+![](../resources/img/01/09-animator/19.png)
+
+20. In the **PlayerController.cs** script, add the following code:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerController : MonoBehaviour
+{
+    Vector2 moveInput;
+    Rigidbody2D rb;
+    Animator animator;
+
+    public float walkSpeed = 5f;
+    
+    [SerializeField]
+    private bool _isMoving = false;
+    [SerializeField]
+    private bool _isRunning = false;
+
+    public bool IsMoving {
+        get { return _isMoving; }
+        set 
+        { 
+            _isMoving = value; 
+            animator.SetBool("isMoving", value);
+        }
+    }
+
+    public bool IsRunning {
+        get { return _isRunning; }
+        set 
+        { 
+            _isRunning = value; 
+            animator.SetBool("isRunning", value);
+        }
+    }
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        
+        // Get the Animator component
+        animator = GetComponent<Animator>();
+    }
+
+    // ...
+
+    public void OnRun(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            IsRunning = true;
+        }
+        else if (context.canceled)
+        {
+            IsRunning = false;
+        }
+    }
+}
+```
+
+21. In the **Player Input** component, set the **Events > Player > Run** property to the **PlayerController > OnMove** method.
+
+![](../resources/img/01/06-player/20.png)
