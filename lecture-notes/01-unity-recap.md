@@ -232,6 +232,9 @@ public class PlayerController : MonoBehaviour
 
 3. Make sure the **Transform** component of the **Virtual Camera** object's **Position** property is set to **(0, 0, -10)**.
 
+![](../resources/img/01/07-camera/03.png)
+
+
 ```cs
 using System.Collections;
 using System.Collections.Generic;
