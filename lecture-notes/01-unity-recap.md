@@ -441,3 +441,9 @@ public class PlayerController : MonoBehaviour
 21. In the **Player Input** component, set the **Events > Player > Run** property to the **PlayerController > OnMove** method.
 
 ![](../resources/img/01/06-player/20.png)
+
+22. Run the game and test the animations. You will notice that the player will animate when they are idle, walking and running. However, the animations for moving left is not working correctly. This is because the player is not flipping when moving left.
+
+**Task:** Currently, the player walks and runs at the same speed. Update the **PlayerController.cs** script to make the player run faster when the **IsRunning** parameter is set to **true**.
+
+## Flip Sprite
