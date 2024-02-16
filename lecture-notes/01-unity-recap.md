@@ -447,3 +447,60 @@ public class PlayerController : MonoBehaviour
 **Task:** Currently, the player walks and runs at the same speed. Update the **PlayerController.cs** script to make the player run faster when the **IsRunning** parameter is set to **true**.
 
 ## Flip Sprite
+
+In the **PlayerController.cs** script, add the following code to flip the player sprite when moving left:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody2D))]
+public class PlayerController : MonoBehaviour
+{
+    // ...
+
+    [SerializeField]
+    private bool _IsMovingRight = true;
+
+    // ...
+
+    public bool IsMovingRight {
+        get { return _IsMovingRight; }
+        set 
+        { 
+            if (_IsMovingRight != value) 
+            {
+                transform.localScale *= new Vector2(-1, 1);
+            }
+            _IsMovingRight = value;
+        }
+    }
+
+    //...
+
+    private void SetDirection(Vector2 moveInput)
+    {
+        if (moveInput.x > 0 && !IsMovingRight)
+        {
+            IsMovingRight = true;
+        }
+        else if (moveInput.x < 0 && IsMovingRight)
+        {
+            IsMovingRight = false;
+        }
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+        IsMoving = moveInput != Vector2.zero;
+        SetDirection(moveInput); 
+    } 
+
+    // ...
+}
+```
+
+`transform.localScale *= new Vector2(-1, 1);` is used to flip the player sprite. The `IsMovingRight` property is used to determine if the player is moving right or left.
