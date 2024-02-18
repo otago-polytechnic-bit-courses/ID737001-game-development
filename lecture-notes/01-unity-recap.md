@@ -569,6 +569,8 @@ public class PlayerController : MonoBehaviour
 
 ## Air States
 
+In the **Scripts** directory, create a new script called **TouchController.cs**. Add the following code to the script:
+
 ```cs
 using System.Collections;
 using System.Collections.Generic;
@@ -610,3 +612,50 @@ public class TouchController : MonoBehaviour
     }
 }
 ```
+
+2. Apply the **TouchController.cs** script to the **Player**.
+
+![](../resources/img/01/11-air-states/01.png)
+
+3. Open the **Animator** window and create a new bool parameter called **isGrounded**.
+
+![](../resources/img/01/11-air-states/02.png)
+
+4. Create a new **Animation Clip** called **PlayerJumpAnimation**. Add the following sprites to the **Dopesheet**:
+   - adventurer-jump-0
+   - adventurer-jump-1
+   - adventurer-jump-2
+   - adventurer-jump-3
+
+![](../resources/img/01/11-air-states/03.png)
+
+5. Create a new **Animation Clip** called **PlayerRisingAnimation**. Add the **adventurer-jump-3** sprite to the **Dopesheet**.
+
+![](../resources/img/01/11-air-states/04.png)
+
+6. Create a new **Animation Clip** called **PlayerFallAnimation**. Add the **adventurer-fall-0** and **adventurer-fall-1** sprites to the **Dopesheet**.
+
+![](../resources/img/01/11-air-states/05.png)
+
+7. Create a new **Sub-State Machine** called **AirStates**. This will be used to control the air states of the player. Move the **PlayerJumpAnimation**, **PlayerRisingAnimation** and **PlayerFallAnimation** into the **AirStates**.
+
+![](../resources/img/01/11-air-states/06.png)
+
+8. Make the following transitions:
+   - **GroundStates** to **AirStates**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **false**.
+    - **AirStates** to **GroundStates**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **true**.
+
+![](../resources/img/01/11-air-states/07.png)
+
+8. In **GroundStates**, make a transition from **(Up) Base Layer** to **Entry**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **true**. What is happening here is that when the player is grounded, the **GroundStates** will be active. When the player is not grounded, the **AirStates** will be active. The **Entry** is a special state that is used to transition from one state to another.
+
+![](../resources/img/01/11-air-states/08.png)
+
+9. Make the following transitions:
+    - **PlayerWalkAnimation** to **Exit**.
+    - **PlayerRunAnimation** to **Exit**.
+    - **PlayerIdleAnimation** to **Exit**.
+
+Each of these transitions should have the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **false**.
+
+![](../resources/img/01/11-air-states/09.png)
