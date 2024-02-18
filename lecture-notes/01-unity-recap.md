@@ -64,7 +64,7 @@ In the **assessments > project-game-development-demo** directory, you will find 
 
 **Cinemachine** is a powerful and flexible camera system for Unity. It is a free package that you can install from the Unity Package Manager.
 
-1. Navigate to the **Window > Package Manager** window. 
+1. Navigate to the **Window > Package Manager** window.
 
 ![](../resources/img/01/04-cinemachine-and-input-system/01.png)
 
@@ -157,11 +157,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D rb;
 
     public float walkSpeed = 5f;
-    
+
     [SerializeField]
     private bool _isMoving = false;
 
-    public bool IsMoving {
+    public bool IsMoving 
+    {
         get { return _isMoving; }
         set { _isMoving = value; }
     }
@@ -178,7 +179,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update() {}
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         // Move the player
         rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
@@ -189,10 +190,10 @@ public class PlayerController : MonoBehaviour
     {
         // Get the move input
         moveInput = context.ReadValue<Vector2>();
-        
+
         // Set the is moving flag
         IsMoving = moveInput != Vector2.zero;
-    } 
+    }
 }
 ```
 
@@ -222,7 +223,7 @@ public class PlayerController : MonoBehaviour
 
 ## Camera
 
-1. In the **Hierarchy** window, create a new **2D Camera** called **Virtual Camera**. 
+1. In the **Hierarchy** window, create a new **2D Camera** called **Virtual Camera**.
 
 ![](../resources/img/01/07-camera/01.png)
 
@@ -254,21 +255,21 @@ public class ParallaxEffect : MonoBehaviour
     float startingZ;
 
     Vector2 cameraMoveSinceStart => (Vector2)camera.transform.position - startPosition;
-    float zDistanceFromTarget => transform.position.z - target.transform.position.z;    
+    float zDistanceFromTarget => transform.position.z - target.transform.position.z;
     float clippingPlane => (camera.transform.position.z + (zDistanceFromTarget > 0 ? camera.farClipPlane : camera.nearClipPlane));
     float parallaxFactor => Mathf.Abs(zDistanceFromTarget) / clippingPlane;
 
     // Start is called before the first frame update
     void Start()
     {
-        startingPosition = transform.position;
+        startingPos = transform.position;
         startingZ = transform.position.z;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 newPosition = startingPosition + cameraMoveSinceStart * parallaxFactor;
+        Vector2 newPosition = startingPos + cameraMoveSinceStart * parallaxFactor;
         transform.position = new Vector3(newPosition.x, newPosition.y, startingZ);
     }
 }
@@ -306,7 +307,7 @@ public class ParallaxEffect : MonoBehaviour
 
 ![](../resources/img/01/09-animator/04.png)
 
-5. Click the **Create** button to create a new animation. 
+5. Click the **Create** button to create a new animation.
 
 ![](../resources/img/01/09-animator/05.png)
 
@@ -314,7 +315,7 @@ public class ParallaxEffect : MonoBehaviour
 
 ![](../resources/img/01/09-animator/06.png)
 
-7. Show the sample rate by clicking on the **Show Sample Rate**. This will show the sample rate of the animation. 
+7. Show the sample rate by clicking on the **Show Sample Rate**. This will show the sample rate of the animation.
 
 ![](../resources/img/01/09-animator/07.png)
 
@@ -323,12 +324,12 @@ public class ParallaxEffect : MonoBehaviour
 ![](../resources/img/01/09-animator/08.png)
 
 9. Drag and drop the following sprites into the **Dopesheet**:
-    * adventurer-idle-0
-    * adventurer-idle-1
-    * adventurer-idle-2
-    * adventurer-idle-3
+   - adventurer-idle-0
+   - adventurer-idle-1
+   - adventurer-idle-2
+   - adventurer-idle-3
 
-The **Dopesheet** is a timeline that shows the keyframes of the animation. 
+The **Dopesheet** is a timeline that shows the keyframes of the animation.
 
 ![](../resources/img/01/09-animator/09.png)
 
@@ -346,7 +347,7 @@ A **Sub-State Machine** is a state machine that is nested inside another state m
 
 ![](../resources/img/01/09-animator/12.png)
 
-13. In the **GroundStates**, set the **PlayerIdleAnimation** as the **Layer Default State**. 
+13. In the **GroundStates**, set the **PlayerIdleAnimation** as the **Layer Default State**.
 
 ![](../resources/img/01/09-animator/13.png)
 
@@ -362,11 +363,11 @@ A **Sub-State Machine** is a state machine that is nested inside another state m
 
 ![](../resources/img/01/09-animator/16.png)
 
-17. Right-click on **PlayerWalkAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **true**. 
+17. Right-click on **PlayerWalkAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **true**.
 
 ![](../resources/img/01/09-animator/17.png)
 
-18. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **false**. 
+18. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **false**.
 
 ![](../resources/img/01/09-animator/18.png)
 
@@ -387,29 +388,31 @@ public class PlayerController : MonoBehaviour
 {
     Vector2 moveInput;
     Rigidbody2D rb;
-    Animator animator;
+    Animator anim;
 
     public float walkSpeed = 5f;
-    
+
     [SerializeField]
     private bool _isMoving = false;
     [SerializeField]
     private bool _isRunning = false;
 
-    public bool IsMoving {
+    public bool IsMoving 
+    {
         get { return _isMoving; }
-        set 
-        { 
-            _isMoving = value; 
+        set
+        {
+            _isMoving = value;
             animator.SetBool("isMoving", value);
         }
     }
 
-    public bool IsRunning {
+    public bool IsRunning 
+    {
         get { return _isRunning; }
-        set 
-        { 
-            _isRunning = value; 
+        set
+        {
+            _isRunning = value;
             animator.SetBool("isRunning", value);
         }
     }
@@ -417,7 +420,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        
+
         // Get the Animator component
         animator = GetComponent<Animator>();
     }
@@ -466,11 +469,12 @@ public class PlayerController : MonoBehaviour
 
     // ...
 
-    public bool IsMovingRight {
+    public bool IsMovingRight 
+    {
         get { return _IsMovingRight; }
-        set 
-        { 
-            if (_IsMovingRight != value) 
+        set
+        {
+            if (_IsMovingRight != value)
             {
                 transform.localScale *= new Vector2(-1, 1);
             }
@@ -496,11 +500,58 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = context.ReadValue<Vector2>();
         IsMoving = moveInput != Vector2.zero;
-        SetDirection(moveInput); 
-    } 
+        SetDirection(moveInput);
+    }
 
     // ...
 }
 ```
 
 `transform.localScale *= new Vector2(-1, 1);` is used to flip the player sprite. The `IsMovingRight` property is used to determine if the player is moving right or left.
+
+## Tilemap
+
+##
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TouchController : MonoBehaviour
+{
+    Animator anim;
+    CapsuleCollider2D cc;
+    RaycastHit2D[] groundHits = new RaycastHit2D[5];
+
+    public ContactFilter2D contactFilter;
+    public float groundDistance = 0.5f;
+
+    [SerializeField]
+    private bool _isGrounded = false;
+
+    public bool IsGrounded 
+    {
+        get { return _isGrounded; }
+        set 
+        { 
+            _isGrounded = value; 
+            anim.SetBool("isGrounded", value);
+        }
+    }
+
+    private void Awake() 
+    {
+        anim = GetComponent<Animator>();
+        cc = GetComponent<CapsuleCollider2D>();
+    }
+
+    // ... 
+
+    private void FixedUpdate() 
+    {
+        IsGrounded = cc.Cast(Vector2.down, contactFilter, groundHits, groundDistance) > 0;
+    }
+}
+```
