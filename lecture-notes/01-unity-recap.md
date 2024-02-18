@@ -197,7 +197,7 @@ public class PlayerController : MonoBehaviour
 }
 ```
 
-6. Add a **Player Input** component to the **Player** object. This component is used to handle input from the player.
+6. Add a **Player Input** component to the **Player**. This component is used to handle input from the player.
 
 ![](../resources/img/01/06-player/05.png)
 
@@ -213,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/06-player/08.png)
 
-10. Apply the **PlayerController.cs** script to the **Player** object.
+10. Apply the **PlayerController.cs** script to the **Player**.
 
 ![](../resources/img/01/06-player/09.png)
 
@@ -291,7 +291,7 @@ public class ParallaxEffect : MonoBehaviour
 
 **Animator** is a powerful tool in Unity that allows you to create animations for your game. It is used to animate the player, enemies, backgrounds and more.
 
-1. Apply the **Animator** component to the **Player** object.
+1. Apply the **Animator** component to the **Player**.
 
 ![](../resources/img/01/09-animator/01.png)
 
@@ -511,8 +511,63 @@ public class PlayerController : MonoBehaviour
 
 ## Tilemap
 
-##
+**Tilemap** is a system used to create 2D tile-based maps. It is used to create the ground, walls, platforms and more.
 
+1. Open the tile palette by clicking on **Window > 2D > Tile Palette**.
+
+![](../resources/img/01/10-tilemap/01.png)
+
+2. Go to the **spritesheet** file in the **Assets > Art > Tilesets** directory. Change the **Sprite Mode** to **Multiple** and click on **Sprite Editor**.
+
+![](../resources/img/01/10-tilemap/02.png)
+
+3. We want to slice the **spritesheet** file into individual tiles. Click on **Slice** and set the **Type** to **Grid by Cell Size**. Set the **Pixel Size** to **16x16**. Click on **Slice** to slice the spritesheet into individual tiles. 
+
+![](../resources/img/01/10-tilemap/03.png)
+
+![](../resources/img/01/10-tilemap/04.png)
+
+4. In the **Tile Palette** window, click on **Create New Palette**. Name the palette **Main Palette** and save it in the **Assets > Art > Palette** directory. **Note:** You have to create a new directory called **Palette** in the **Art** directory.
+
+![](../resources/img/01/10-tilemap/05.png)
+
+![](../resources/img/01/10-tilemap/06.png)
+
+5. The **Main Palette** will be created. Drag and drop **spritesheet** file into the palette. These will be the tiles that you will use to create the map.
+
+![](../resources/img/01/10-tilemap/07.png)
+
+6. In the **Hierarchy** window, create a new **2D Object > Tilemap > Rectangular**. This should create a **Grid** and a **Tilemap** object. Rename the **Tilemap** object to **Tilemap**.
+
+![](../resources/img/01/10-tilemap/08.png)
+
+![](../resources/img/01/10-tilemap/09.png)
+
+7. Using the **Tile Palette**, paint the tiles on the **Tilemap** object. 
+
+![](../resources/img/01/10-tilemap/10.png)
+
+8. In the **Player > Rigidbody 2D**, set the **Gravity Scale** to **1**. This will make the player fall to the ground.
+
+![](../resources/img/01/10-tilemap/11.png)
+
+9. Add a **Capsule Collider 2D** component to the **Player**. Edit the **Offset** and **Size** properties to fit the player.
+
+![](../resources/img/01/10-tilemap/12.png)
+
+10. Add a **Composite Collider 2D** and **Tilemap Collider 2D** component to the **Tilemap**. This will allow the player to collide with the tiles.
+
+![](../resources/img/01/10-tilemap/13.png)
+
+11. Play around with the tiles to create the ground, walls and platforms.
+
+![](../resources/img/01/10-tilemap/14.png)
+
+12. In the **Grid** object, create a new **2D Object > Tilemap > Rectangular**. Rename the **Tilemap** object to **No Collision Tilemap**. This **tilemap** will be useful for tiles that the player can go through.
+
+![](../resources/img/01/10-tilemap/15.png)
+
+## Air States
 
 ```cs
 using System.Collections;
