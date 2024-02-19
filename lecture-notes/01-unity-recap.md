@@ -351,23 +351,23 @@ A **Sub-State Machine** is a state machine that is nested inside another state m
 
 ![](../resources/img/01/09-animator/13.png)
 
-14. Create two new **Parameters** called **IsMoving** and **IsRunning**. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsMoving** and **IsRunning** parameters in the **Conditions**. Set the **IsMoving** and **IsRunning** to **true**.
+14. Create two new **Parameters** called **isMoving** and **isRunning**. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **isMoving** and **isRunning** parameters in the **Conditions**. Set the **isMoving** and **isRunning** to **true**.
 
 ![](../resources/img/01/09-animator/14.png)
 
-15. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsMoving** and **IsRunning** parameters in the **Conditions**. Set the **IsMoving** to **true** and **IsRunning** to **false**.
+15. Right-click on **PlayerIdleAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **isMoving** and **isRunning** parameters in the **Conditions**. Set the **isMoving** to **true** and **isRunning** to **false**.
 
 ![](../resources/img/01/09-animator/15.png)
 
-16. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerIdleAnimation**. Add the **IsMoving** parameter in the **Conditions**. Set the **IsMoving** to **false**. Repeat the process for the **PlayerWalkAnimation**.
+16. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerIdleAnimation**. Add the **isMoving** parameter in the **Conditions**. Set the **isMoving** to **false**. Repeat the process for the **PlayerWalkAnimation**.
 
 ![](../resources/img/01/09-animator/16.png)
 
-17. Right-click on **PlayerWalkAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **true**.
+17. Right-click on **PlayerWalkAnimation** and select **Make Transition**. Drag the arrow to **PlayerRunAnimation**. Add the **isRunning** parameter in the **Conditions**. Set the **isRunning** to **true**.
 
 ![](../resources/img/01/09-animator/17.png)
 
-18. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **IsRunning** parameter in the **Conditions**. Set the **IsRunning** to **false**.
+18. Right-click on **PlayerRunAnimation** and select **Make Transition**. Drag the arrow to **PlayerWalkAnimation**. Add the **isRunning** parameter in the **Conditions**. Set the **isRunning** to **false**.
 
 ![](../resources/img/01/09-animator/18.png)
 
@@ -447,7 +447,7 @@ public class PlayerController : MonoBehaviour
 
 22. Run the game and test the animations. You will notice that the player will animate when they are idle, walking and running. However, the animations for moving left is not working correctly. This is because the player is not flipping when moving left.
 
-**Task:** Currently, the player walks and runs at the same speed. Update the **PlayerController.cs** script to make the player run faster when the **IsRunning** parameter is set to **true**.
+**Task:** Currently, the player walks and runs at the same speed. Update the **PlayerController.cs** script to make the player run faster when the **isRunning** parameter is set to **true**.
 
 ## Flip Sprite
 
@@ -642,12 +642,12 @@ public class TouchController : MonoBehaviour
 ![](../resources/img/01/11-air-states/06.png)
 
 8. Make the following transitions:
-   - **GroundStates** to **AirStates**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **false**.
-    - **AirStates** to **GroundStates**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **true**.
+   - **GroundStates** to **AirStates**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **false**.
+    - **AirStates** to **GroundStates**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**.
 
 ![](../resources/img/01/11-air-states/07.png)
 
-8. In **GroundStates**, make a transition from **(Up) Base Layer** to **Entry**. Add the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **true**. What is happening here is that when the player is grounded, the **GroundStates** will be active. When the player is not grounded, the **AirStates** will be active. The **Entry** is a special state that is used to transition from one state to another.
+8. In **GroundStates**, make a transition from **(Up) Base Layer** to **Entry**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**. What is happening here is that when the player is grounded, the **GroundStates** will be active. When the player is not grounded, the **AirStates** will be active. The **Entry** is a special state that is used to transition from one state to another.
 
 ![](../resources/img/01/11-air-states/08.png)
 
@@ -656,6 +656,174 @@ public class TouchController : MonoBehaviour
     - **PlayerRunAnimation** to **Exit**.
     - **PlayerIdleAnimation** to **Exit**.
 
-Each of these transitions should have the **IsGrounded** parameter in the **Conditions**. Set the **IsGrounded** to **false**.
+Each of these transitions should have the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **false**.
 
 ![](../resources/img/01/11-air-states/09.png)
+
+10. In the **Animator** window, create a new float parameter called **yVel**.
+
+11. Make the following transitions:
+    - **PlayerRisingAnimation** to **PlayerFallingAnimation**. Add the **yVel** parameter in the **Conditions**. Set **yVel** less than **0**.
+    - **PlayerFallingAnimation** to **PlayerRisingAnimation**. Add the **yVel** parameter in the **Conditions**. Set **yVel** greater than **0**.x
+
+Each of these transitions should have their **Has Exit Time** property set to **false** and **Transition Duration** set to **0**.
+
+When the **yVel** is less than **0**, the player is falling. When the **yVel** is greater than **0**, the player is rising.
+
+![](../resources/img/01/11-air-states/10.png)
+
+11. Make the following transitions:
+    - **PlayerRisingAnimation** to **Exit**.
+    - **PlayerFallingAnimation** to **Exit**.
+
+Each of these transitions should have the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**. Also, set the **Has Exit Time** property to **false** and **Transition Duration** set to **0**.
+
+![](../resources/img/01/11-air-states/11.png)
+
+12. Set the **State Machine Default State** of the **AirStates** to **PlayerFallingAnimation**.
+
+![](../resources/img/01/11-air-states/12.png)
+
+13. In the **PlayerInputActions** asset, create a new action called **Jump**. Set the **Binding > Path** to **Space [Keyboard]**.
+
+![](../resources/img/01/11-air-states/13.png)
+
+14. Create a new trigger parameter called **jump**. This will be used to trigger the jump animation.
+
+![](../resources/img/01/11-air-states/14.png)
+
+15. Make the following transitions:
+    - **PlayerIdleAnimation** to **Exit**. 
+    - **PlayerWalkAnimation** to **Exit**. 
+    - **PlayerRunAnimation** to **Exit**. 
+
+Each of these transitions should have the **jump** parameter in the **Conditions**. Also, set the **Has Exit Time** property to **false** and **Transition Duration** set to **0**.
+
+![](../resources/img/01/11-air-states/15.png)
+
+16. Make a transition from **GroundStates** to **PlayerJumpAnimation**. To do this, right-click on **GroundStates** and select **Make Transition**. Drag the arrow to **AirStates** and select **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**. 
+
+![](../resources/img/01/11-air-states/16.png)
+
+![](../resources/img/01/11-air-states/17.png)
+
+17. Make a transition from **(Up) Base Layer** to **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**. 
+
+![](../resources/img/01/11-air-states/18.png)
+
+18. Make a transition from **PlayerJumpAnimation** to **PlayerRisingAnimation**. Set the **Transition Duration** set to **0**. This has no conditions.
+
+![](../resources/img/01/11-air-states/19.png)
+
+19. In **PlayerController.cs**, add the following code to handle the jump:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchController))]
+public class PlayerController : MonoBehaviour
+{
+    // ...
+    TouchController touchController;
+
+    // ...
+    public float jumpForce = 10f;
+    
+    // ...
+
+    private void Awake()
+    {
+        //...
+        touchController = GetComponent<TouchController>();
+    }
+
+    // ...
+
+    private void FixedUpdate() 
+    {
+        //...
+        anim.SetFloat("yVel", rb.velocity.y);
+    }
+
+    // ...
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.started && touchController.IsGrounded)
+        {
+            anim.SetTrigger("jump");
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+    }
+}
+```
+
+20. In the **Player Input** component, set the **Events > Player > Move** property to the **PlayerController > OnJump** method.
+
+![](../resources/img/01/11-air-states/20.png)
+
+
+21. When you test the game, you will notice that the player gets stuck on the tiles. Create two new parameters called **isOnWall** and **isOnCeiling**. 
+
+![](../resources/img/01/11-air-states/21.png)
+
+22. In the **TouchController.cs** script, add the following code to handle the wall and ceiling states:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class TouchController : MonoBehaviour
+{
+    // ...
+    RaycastHit2D[] wallHits = new RaycastHit2D[5];
+    RaycastHit2D[] ceilingHits = new RaycastHit2D[5];
+
+    // ...
+    public float wallDistance = 0.2f;
+    public float ceilingDistance = 0.05f;
+
+    // ...
+    [SerializeField]
+    private bool _isOnWall = false;
+    [SerializeField]
+    private bool _isOnCeiling = false;
+
+    // ...
+    
+    public bool IsOnWall 
+    {
+        get { return _isOnWall; }
+        set 
+        { 
+            _isOnWall = value; 
+            anim.SetBool("isOnWall", value);
+        }
+    }
+
+    public bool IsOnCeiling 
+    {
+        get { return _isOnCeiling; }
+        set 
+        { 
+            _isOnCeiling = value; 
+            anim.SetBool("isOnCeiling", value);
+        }
+    }
+
+    private Vector2 wallDirection => gameObject.transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+
+    // ...
+
+    private void FixedUpdate() 
+    {
+        // ...
+        IsOnWall = cc.Cast(wallDirection, contactFilter, wallHits, wallDistance) > 0;
+        IsOnCeiling = cc.Cast(Vector2.up, contactFilter, ceilingHits, ceilingDistance) > 0;
+    }
+}
+```
