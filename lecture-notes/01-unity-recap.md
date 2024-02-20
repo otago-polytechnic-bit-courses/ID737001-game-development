@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool _isMoving = false;
 
-    public bool IsMoving 
+    public bool IsMoving
     {
         get { return _isMoving; }
         set { _isMoving = value; }
@@ -397,7 +397,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private bool _isRunning = false;
 
-    public bool IsMoving 
+    public bool IsMoving
     {
         get { return _isMoving; }
         set
@@ -407,7 +407,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public bool IsRunning 
+    public bool IsRunning
     {
         get { return _isRunning; }
         set
@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour
 
     // ...
 
-    public bool IsMovingRight 
+    public bool IsMovingRight
     {
         get { return _IsMovingRight; }
         set
@@ -521,7 +521,7 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/10-tilemap/02.png)
 
-3. We want to slice the **spritesheet** file into individual tiles. Click on **Slice** and set the **Type** to **Grid by Cell Size**. Set the **Pixel Size** to **16x16**. Click on **Slice** to slice the spritesheet into individual tiles. 
+3. We want to slice the **spritesheet** file into individual tiles. Click on **Slice** and set the **Type** to **Grid by Cell Size**. Set the **Pixel Size** to **16x16**. Click on **Slice** to slice the spritesheet into individual tiles.
 
 ![](../resources/img/01/10-tilemap/03.png)
 
@@ -543,7 +543,7 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/10-tilemap/09.png)
 
-7. Using the **Tile Palette**, paint the tiles on the **Tilemap** object. 
+7. Using the **Tile Palette**, paint the tiles on the **Tilemap** object.
 
 ![](../resources/img/01/10-tilemap/10.png)
 
@@ -588,25 +588,25 @@ public class TouchController : MonoBehaviour
     [SerializeField]
     private bool _isGrounded = false;
 
-    public bool IsGrounded 
+    public bool IsGrounded
     {
         get { return _isGrounded; }
-        set 
-        { 
-            _isGrounded = value; 
+        set
+        {
+            _isGrounded = value;
             anim.SetBool("isGrounded", value);
         }
     }
 
-    private void Awake() 
+    private void Awake()
     {
         anim = GetComponent<Animator>();
         cc = GetComponent<CapsuleCollider2D>();
     }
 
-    // ... 
+    // ...
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         IsGrounded = cc.Cast(Vector2.down, contactFilter, groundHits, groundDistance) > 0;
     }
@@ -629,6 +629,8 @@ public class TouchController : MonoBehaviour
 
 ![](../resources/img/01/11-air-states/03.png)
 
+In the **Inspector**, set the **Loop Time** property to **false**. This will make the animation play once.
+
 5. Create a new **Animation Clip** called **PlayerRisingAnimation**. Add the **adventurer-jump-3** sprite to the **Dopesheet**.
 
 ![](../resources/img/01/11-air-states/04.png)
@@ -643,7 +645,7 @@ public class TouchController : MonoBehaviour
 
 8. Make the following transitions:
    - **GroundStates** to **AirStates**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **false**.
-    - **AirStates** to **GroundStates**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**.
+   - **AirStates** to **GroundStates**. Add the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**.
 
 ![](../resources/img/01/11-air-states/07.png)
 
@@ -652,9 +654,9 @@ public class TouchController : MonoBehaviour
 ![](../resources/img/01/11-air-states/08.png)
 
 9. Make the following transitions:
-    - **PlayerWalkAnimation** to **Exit**.
-    - **PlayerRunAnimation** to **Exit**.
-    - **PlayerIdleAnimation** to **Exit**.
+   - **PlayerWalkAnimation** to **Exit**.
+   - **PlayerRunAnimation** to **Exit**.
+   - **PlayerIdleAnimation** to **Exit**.
 
 Each of these transitions should have the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **false**.
 
@@ -666,7 +668,7 @@ Each of these transitions should have the **isGrounded** parameter in the **Cond
     - **PlayerRisingAnimation** to **PlayerFallingAnimation**. Add the **yVel** parameter in the **Conditions**. Set **yVel** less than **0**.
     - **PlayerFallingAnimation** to **PlayerRisingAnimation**. Add the **yVel** parameter in the **Conditions**. Set **yVel** greater than **0**.x
 
-Each of these transitions should have their **Has Exit Time** property set to **false** and **Transition Duration** set to **0**.
+Each of these transitions should have their **Has Exit Time** property set to **false** and **Transition Duration (s)** set to **0**.
 
 When the **yVel** is less than **0**, the player is falling. When the **yVel** is greater than **0**, the player is rising.
 
@@ -676,7 +678,7 @@ When the **yVel** is less than **0**, the player is falling. When the **yVel** i
     - **PlayerRisingAnimation** to **Exit**.
     - **PlayerFallingAnimation** to **Exit**.
 
-Each of these transitions should have the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**. Also, set the **Has Exit Time** property to **false** and **Transition Duration** set to **0**.
+Each of these transitions should have the **isGrounded** parameter in the **Conditions**. Set the **isGrounded** to **true**. Also, set the **Has Exit Time** property to **false** and **Transition Duration (s)** set to **0**.
 
 ![](../resources/img/01/11-air-states/11.png)
 
@@ -693,25 +695,25 @@ Each of these transitions should have the **isGrounded** parameter in the **Cond
 ![](../resources/img/01/11-air-states/14.png)
 
 15. Make the following transitions:
-    - **PlayerIdleAnimation** to **Exit**. 
-    - **PlayerWalkAnimation** to **Exit**. 
-    - **PlayerRunAnimation** to **Exit**. 
+    - **PlayerIdleAnimation** to **Exit**.
+    - **PlayerWalkAnimation** to **Exit**.
+    - **PlayerRunAnimation** to **Exit**.
 
-Each of these transitions should have the **jump** parameter in the **Conditions**. Also, set the **Has Exit Time** property to **false** and **Transition Duration** set to **0**.
+Each of these transitions should have the **jump** parameter in the **Conditions**. Also, set the **Has Exit Time** property to **false** and **Transition Duration (s)** set to **0**.
 
 ![](../resources/img/01/11-air-states/15.png)
 
-16. Make a transition from **GroundStates** to **PlayerJumpAnimation**. To do this, right-click on **GroundStates** and select **Make Transition**. Drag the arrow to **AirStates** and select **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**. 
+16. Make a transition from **GroundStates** to **PlayerJumpAnimation**. To do this, right-click on **GroundStates** and select **Make Transition**. Drag the arrow to **AirStates** and select **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**.
 
 ![](../resources/img/01/11-air-states/16.png)
 
 ![](../resources/img/01/11-air-states/17.png)
 
-17. Make a transition from **(Up) Base Layer** to **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**. 
+17. Make a transition from **(Up) Base Layer** to **PlayerJumpAnimation**. Add the **jump** parameter in the **Conditions**.
 
 ![](../resources/img/01/11-air-states/18.png)
 
-18. Make a transition from **PlayerJumpAnimation** to **PlayerRisingAnimation**. Set the **Transition Duration** set to **0**. This has no conditions.
+18. Make a transition from **PlayerJumpAnimation** to **PlayerRisingAnimation**. Set the **Transition Duration (s)** set to **0**. This has no conditions.
 
 ![](../resources/img/01/11-air-states/19.png)
 
@@ -731,7 +733,7 @@ public class PlayerController : MonoBehaviour
 
     // ...
     public float jumpForce = 10f;
-    
+
     // ...
 
     private void Awake()
@@ -742,7 +744,7 @@ public class PlayerController : MonoBehaviour
 
     // ...
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         //...
         anim.SetFloat("yVel", rb.velocity.y);
@@ -765,8 +767,7 @@ public class PlayerController : MonoBehaviour
 
 ![](../resources/img/01/11-air-states/20.png)
 
-
-21. When you test the game, you will notice that the player gets stuck on the tiles. Create two new parameters called **isOnWall** and **isOnCeiling**. 
+21. When you test the game, you will notice that the player gets stuck on the tiles. Create two new parameters called **isOnWall** and **isOnCeiling**.
 
 ![](../resources/img/01/11-air-states/21.png)
 
@@ -794,23 +795,23 @@ public class TouchController : MonoBehaviour
     private bool _isOnCeiling = false;
 
     // ...
-    
-    public bool IsOnWall 
+
+    public bool IsOnWall
     {
         get { return _isOnWall; }
-        set 
-        { 
-            _isOnWall = value; 
+        set
+        {
+            _isOnWall = value;
             anim.SetBool("isOnWall", value);
         }
     }
 
-    public bool IsOnCeiling 
+    public bool IsOnCeiling
     {
         get { return _isOnCeiling; }
-        set 
-        { 
-            _isOnCeiling = value; 
+        set
+        {
+            _isOnCeiling = value;
             anim.SetBool("isOnCeiling", value);
         }
     }
@@ -819,7 +820,7 @@ public class TouchController : MonoBehaviour
 
     // ...
 
-    private void FixedUpdate() 
+    private void FixedUpdate()
     {
         // ...
         IsOnWall = cc.Cast(wallDirection, contactFilter, wallHits, wallDistance) > 0;
@@ -827,3 +828,156 @@ public class TouchController : MonoBehaviour
     }
 }
 ```
+
+## Ground Attack States
+
+1. In the **Animator** windows, create a new **Sub-State Machine** called **GroundAttackStates**. This will be used to control the ground attack states of the player.
+
+![](../resources/img/01/12-attack-state/01.png)
+
+2. Create a new **Animation Clip** called **PlayerGroundAttackAnimation**. Add the following sprites to the **Dopesheet**:
+   - adventurer-attack1-0
+   - adventurer-attack1-1
+   - adventurer-attack1-2
+   - adventurer-attack1-3
+   - adventurer-attack1-4
+
+![](../resources/img/01/12-attack-state/02.png)
+
+3. In the **Inspector**, set the **Loop Time** property to **false**. 
+
+![](../resources/img/01/12-attack-state/03.png)
+
+4. Drag and drop the **PlayerGroundAttackAnimation** into the **GroundAttackStates**.
+
+![](../resources/img/01/12-attack-state/04.png)
+
+5. Create a new trigger parameter called **attack**. 
+
+![](../resources/img/01/12-attack-state/05.png)
+
+6. Make the following transitions:
+   - **GroundStates** to **GroundAttackStates**. Add the **attack** parameter in the **Conditions**.
+   - **GroundAttackStates** to **GroundStates**. Sel
+
+![](../resources/img/01/12-attack-state/06.png)
+
+![](../resources/img/01/12-attack-state/07.png)
+
+7. Make the following transitions:
+   - **PlayerIdleAnimation** to **Exit**.
+   - **PlayerWalkAnimation** to **Exit**.
+   - **PlayerRunAnimation** to **Exit**.
+
+Each of these transitions should have the **attack** parameter in the **Conditions**. Also, set the **Has Exit Time** property to **false** and **Transition Duration (s)** set to **0**.
+
+![](../resources/img/01/12-attack-state/08.png)
+
+8. In the **PlayerController.cs** script, add the following code to handle the attack:
+
+```cs
+public void OnAttack(InputAction.CallbackContext context)
+{
+    if (context.started)
+    {
+        anim.SetTrigger("attack");
+    }
+}
+```
+
+9. In the **Player Input** component, set the **Events > Player > Attack** property to the **PlayerController > OnAttack** method.
+
+![](../resources/img/01/12-attack-state/09.png)
+
+10. Make a transition from **PlayerGroundAttackAnimation** to **Exit**. Set the **Exit Time** property to 1 and **Transition Duration (s)** set to **0**.
+
+![](../resources/img/01/12-attack-state/10.png)
+
+11. In the **GroundAttackStates** **Inspector**, create a new **Script** called **SetBoolBehaviour.cs**. 
+
+![](../resources/img/01/12-attack-state/11.png)
+
+Add the following code to the script:
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SetBoolBehaviour : StateMachineBehaviour
+{
+    public string boolName;
+    public bool updateOnState;
+    public bool updateOnStateMachine;
+    public bool valueOnEnter;
+    public bool valueOnExit;
+
+    // OnStateEnter is called before OnStateEnter is called on any state inside this state machine
+    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       if (updateOnState)
+       {
+           animator.SetBool(boolName, valueOnEnter);
+       }
+    }
+
+    // OnStateUpdate is called before OnStateUpdate is called on any state inside this state machine
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateExit is called before OnStateExit is called on any state inside this state machine
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+       if (updateOnState)
+       {
+           animator.SetBool(boolName, valueOnExit);
+       }
+    }
+
+    // OnStateMove is called before OnStateMove is called on any state inside this state machine
+    //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateIK is called before OnStateIK is called on any state inside this state machine
+    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
+
+    // OnStateMachineEnter is called when entering a state machine via its Entry Node
+    override public void OnStateMachineEnter(Animator animator, int stateMachinePathHash)
+    {
+       if (updateOnStateMachine)
+       {
+           animator.SetBool(boolName, valueOnEnter);
+       }
+    }
+
+    // OnStateMachineExit is called when exiting a state machine via its Exit Node
+    override public void OnStateMachineExit(Animator animator, int stateMachinePathHash)
+    {
+       if (updateOnStateMachine)
+       {
+           animator.SetBool(boolName, valueOnExit);
+       }
+    }
+}
+```
+
+12. Create a new parameter called **canMove**.
+
+![](../resources/img/01/12-attack-state/12.png)
+
+13. In the **GroundAttackStates** **Inspector**, set the **Bool Name** property to **canMove**, **Update On State Machine** to **true** and **Value On Exit** to **true**.
+
+![](../resources/img/01/12-attack-state/13.png)
+
+14. By default, set the **canMove** parameter to **true**.
+
+![](../resources/img/01/12-attack-state/14.png)
+
+
