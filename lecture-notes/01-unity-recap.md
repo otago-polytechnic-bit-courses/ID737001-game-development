@@ -980,4 +980,70 @@ public class SetBoolBehaviour : StateMachineBehaviour
 
 ![](../resources/img/01/12-attack-state/14.png)
 
+15. In the **PlayerController.cs** script, add the following code to handle the **canMove** parameter:
 
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchController))]
+public class PlayerController : MonoBehaviour
+{
+    // ...
+
+    public bool CanMove 
+    {
+        get { return anim.GetBool("canMove"); }
+    }
+
+    public float CurrMoveSpeed 
+    {
+        get {
+            if (CanMove) {
+                if (IsMoving && !touchController.IsOnWall) {
+                    if (IsRunning) 
+                    {
+                        return runSpeed;
+                    } 
+                    else 
+                    {
+                        return walkSpeed;
+                    }
+                } 
+                else 
+                {
+                    return 0; // Idle
+                }
+            } 
+            else 
+            {
+                return 0; // Cannot move
+            }
+        }
+    }
+
+    // ...
+
+    private void FixedUpdate() 
+    {
+        // Change walkSpeed to CurrMoveSpeed
+        rb.velocity = new Vector2(moveInput.x * CurrMoveSpeed, rb.velocity.y);
+        // ...
+    }
+
+    // ...
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        // Also check if the player can move
+        if (context.started && touchController.IsGrounded && CanMove)
+        {
+            // ...
+        }
+    }
+
+    // ...
+}
+```
