@@ -1,12 +1,12 @@
 # 02: Unity Recap
 
-## Enemy Walk
+## Enemy Move
 
 Now we are going to move onto the enemy. 
 
 1. If you have not done this, drag and drop the **Slime** directory from the **assessments > project-game-development-demo > Art** directory into the **Assets > Art** directory.
 
-![](../resources/img/02/01-enemy-walk/01.png)
+![](../resources/img/02/01-enemy-move/01.png)
 
 2. The component configuration is similar to the player. Implement the following:
     - Create a new empty object and name it **Slime**.
@@ -17,7 +17,7 @@ Now we are going to move onto the enemy.
     - Add the **TouchController** script to the **Slime** object.
     - Add an **Animator** component and create a new **Animation Controller** called **SlimeAnimationController**.
 
-![](../resources/img/02/01-enemy-walk/02.png)
+![](../resources/img/02/01-enemy-move/02.png)
 
 3. In the **Animator** window, create three new parameters:
     - **isGrounded** of type **Bool**.
@@ -26,7 +26,7 @@ Now we are going to move onto the enemy.
 
 Notice these parameters are similar to the player. 
 
-![](../resources/img/02/01-enemy-walk/03.png)
+![](../resources/img/02/01-enemy-move/03.png)
 
 4. In the **SlimeController** script, implement the following code:
 
@@ -85,6 +85,7 @@ public class SlimeController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         touchController = GetComponent<TouchController>();
     }
 
@@ -130,18 +131,149 @@ public class SlimeController : MonoBehaviour
     - **Enemy**
     - **EnemyHitbox**
 
-![](../resources/img/02/01-enemy-walk/04.png)
+![](../resources/img/02/01-enemy-move/04.png)
 
-![](../resources/img/02/01-enemy-walk/05.png)
+![](../resources/img/02/01-enemy-move/05.png)
 
 6. Set the **Tilemap** layer to **Ground**.
 
-![](../resources/img/02/01-enemy-walk/06.png)
+![](../resources/img/02/01-enemy-move/06.png)
 
 7. Set the **Slime** layer to **Enemy**. Also, in the **TouchController** script, set the **Use Layer Mask** to **true** and set the **Layer Mask** to **Ground**. Also, do the same for the **Player** object except set the layer to **Player**.
 
-![](../resources/img/02/01-enemy-walk/07.png)
+![](../resources/img/02/01-enemy-move/07.png)
 
 8. Go to **Edit > Project Settings... > Physics 2D**. Set the matrix to the following:
 
-![](../resources/img/02/01-enemy-walk/08.png)
+![](../resources/img/02/01-enemy-move/08.png)
+
+## Enemy Animation
+
+1. In the **Animation** window, create the following animations:
+    - **SlimeMoveAnimation**
+    - **SlimeAttackAnimation**
+    - **SlimeHurtAnimation**
+    - **SlimeDieAnimation**
+
+2. Uncheck the **Loop Time** option for the **SlimeAttackAnimation**, **SlimeHurtAnimation** and **SlimeDieAnimation**.
+
+3. Create two new **Sub-State Machine** called **MoveStates** and **AttackStates**. Move the **SlimeMoveAnimation** to the **MoveStates** and the **SlimeAttackAnimation** to the **AttackStates**. 
+
+4. Create two new **Parameters** called **canMove** and **hasTarget** of type **Bool**. Set the **Default** value of **canMove** to **true**. 
+
+5. Make the following transitions:
+    - **MoveStates** to **AttackStates**. Add the **hasTarget** parameter in the **Conditions**. Set the **hasTarget** to **true**.
+    - **AttackStates** to **MoveStates**. Add the **hasTarget** parameter in the **Conditions**. Set the **hasTarget** to **false**.
+    - **MoveStates > SlimeMoveAnimation** to **Exit**. Set **Has Exit Time** to **false** and **Transition Duration (s)** to **0**.
+    - **AttackStates > SlimeAttackAnimation** to **Exit**. Set **Exit Time** to **1** and **Transition Duration (s)** to **0**.
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DetectionZoneController : MonoBehaviour
+{
+    public List<Collider2D> colliders = new List<Collider2D>();
+
+    Collider2D collider;
+
+    // Start is called before the first frame update
+    void Start() {}
+
+    // Update is called once per frame
+    void Update() {}
+
+    private void Awake()
+    {
+        collider = GetComponent<Collider2D>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        colliders.Add(collision);
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        colliders.Remove(collision);
+    }
+}
+```
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchController))]
+public class SlimeController : MonoBehaviour
+{
+    // ...
+    public DetectionZoneController detectionZone;
+
+    // ...
+    private bool _hasTarget;
+
+    // ...
+
+    public bool HasTarget
+    {
+        get { return _hasTarget; }
+        set 
+        { 
+            _hasTarget = value; 
+            anim.SetBool("hasTarget", value);
+        }
+    }
+
+    // ...
+
+    // Update is called once per frame
+    void Update() 
+    {
+        HasTarget = detectionZone.colliders.Count > 0;
+    }
+
+    // ...
+}
+```
+
+
+```cs
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchController))]
+public class SlimeController : MonoBehaviour
+{
+    // ...
+
+    public bool CanMove 
+    {
+        get { return anim.GetBool("canMove"); }
+    }
+
+    // ...
+
+    private void FixedUpdate() 
+    {
+        if(touchController.IsGrounded && touchController.IsOnWall)
+        {
+            FlipDirection();
+        }
+
+        if (CanMove)
+        {
+            rb.velocity = new Vector2(walkSpeed * _walkableDirectionVector.x, rb.velocity.y);
+        }
+        else 
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+    }
+
+    // ...
+}
+```
