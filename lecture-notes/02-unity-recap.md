@@ -6,7 +6,7 @@ Now we are going to move onto the enemy.
 
 1. If you have not done this, drag and drop the **Slime** directory from the **assessments > project-game-development-demo > Art** directory into the **Assets > Art** directory.
 
-![](../resources/img/02/01-enemy/01.png)
+![](../resources/img/02/01-enemy-walk/01.png)
 
 2. The component configuration is similar to the player. Implement the following:
     - Create a new empty object and name it **Slime**.
@@ -17,7 +17,7 @@ Now we are going to move onto the enemy.
     - Add the **TouchController** script to the **Slime** object.
     - Add an **Animator** component and create a new **Animation Controller** called **SlimeAnimationController**.
 
-![](../resources/img/02/01-enemy/02.png)
+![](../resources/img/02/01-enemy-walk/02.png)
 
 3. In the **Animator** window, create three new parameters:
     - **isGrounded** of type **Bool**.
@@ -26,7 +26,7 @@ Now we are going to move onto the enemy.
 
 Notice these parameters are similar to the player. 
 
-![](../resources/img/02/01-enemy/03.png)
+![](../resources/img/02/01-enemy-walk/03.png)
 
 4. In the **SlimeController** script, implement the following code:
 
@@ -123,3 +123,25 @@ public class SlimeController : MonoBehaviour
 }
 ```
 
+5. In the **Tilemap >Inspector** window, click on **Add Layer...** and add the following layers:
+    - **Ground**
+    - **Player**
+    - **PlayerHitbox**
+    - **Enemy**
+    - **EnemyHitbox**
+
+![](../resources/img/02/01-enemy-walk/04.png)
+
+![](../resources/img/02/01-enemy-walk/05.png)
+
+6. Set the **Tilemap** layer to **Ground**.
+
+![](../resources/img/02/01-enemy-walk/06.png)
+
+7. Set the **Slime** layer to **Enemy**. Also, in the **TouchController** script, set the **Use Layer Mask** to **true** and set the **Layer Mask** to **Ground**. Also, do the same for the **Player** object except set the layer to **Player**.
+
+![](../resources/img/02/01-enemy-walk/07.png)
+
+8. Go to **Edit > Project Settings... > Physics 2D**. Set the matrix to the following:
+
+![](../resources/img/02/01-enemy-walk/08.png)
