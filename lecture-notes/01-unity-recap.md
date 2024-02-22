@@ -858,7 +858,7 @@ public class TouchController : MonoBehaviour
 
 6. Make the following transitions:
    - **GroundStates** to **GroundAttackStates**. Add the **attack** parameter in the **Conditions**.
-   - **GroundAttackStates** to **GroundStates**. Sel
+   - **GroundAttackStates** to **GroundStates**. No conditions are needed.
 
 ![](../resources/img/01/12-attack-state/06.png)
 

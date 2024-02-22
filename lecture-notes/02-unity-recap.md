@@ -159,13 +159,27 @@ public class SlimeController : MonoBehaviour
 
 3. Create two new **Sub-State Machine** called **MoveStates** and **AttackStates**. Move the **SlimeMoveAnimation** to the **MoveStates** and the **SlimeAttackAnimation** to the **AttackStates**. 
 
-4. Create two new **Parameters** called **canMove** and **hasTarget** of type **Bool**. Set the **Default** value of **canMove** to **true**. 
-
-5. Make the following transitions:
+4. Make the following transitions:
     - **MoveStates** to **AttackStates**. Add the **hasTarget** parameter in the **Conditions**. Set the **hasTarget** to **true**.
     - **AttackStates** to **MoveStates**. Add the **hasTarget** parameter in the **Conditions**. Set the **hasTarget** to **false**.
     - **MoveStates > SlimeMoveAnimation** to **Exit**. Set **Has Exit Time** to **false** and **Transition Duration (s)** to **0**.
     - **AttackStates > SlimeAttackAnimation** to **Exit**. Set **Exit Time** to **1** and **Transition Duration (s)** to **0**.
+
+![](../resources/img/02/02-enemy-attack/01.png)
+
+5. Create two new **Parameters** called **canMove** and **hasTarget** of type **Bool**. Set the **Default** value of **canMove** to **true**. Add the **SetBoolBehaviour** **Script** to **AttackStates**, **SlimeDieAnimation** and **SlimeHurtAnimation**. Set the **Parameter** to **canMove**. For **AttackStates**, set the **Update On State Machine** to **true**. For **SlimeDieAnimation** and **SlimeHurtAnimation**, set the **Update On State** to **true**. **Value On Exit** should be set to **true** for all of them.
+
+![](../resources/img/02/02-enemy-attack/02.png)
+
+6. Go to **Edit > Project Settings... > Physics 2D**. Set the matrix to the following:
+
+![](../resources/img/02/02-enemy-attack/03.png)
+
+7. In the **Slime** object, create an empty object and name it **DetectionZone**. Add a **Box Collider 2D** component.
+
+![](../resources/img/02/02-enemy-attack/04.png)
+
+8. Add a new **Script** component and name it **DetectionZoneController**. Implement the following code:
 
 ```cs
 using System.Collections;
@@ -201,6 +215,10 @@ public class DetectionZoneController : MonoBehaviour
 }
 ```
 
+![](../resources/img/02/02-enemy-attack/05.png)
+
+9. In the **SlimeController** script, implement the following code:
+
 ```cs
 using System.Collections;
 using System.Collections.Generic;
@@ -232,13 +250,16 @@ public class SlimeController : MonoBehaviour
     // Update is called once per frame
     void Update() 
     {
-        HasTarget = detectionZone.colliders.Count > 0;
+        HasTarget = detectionZone.colliders.Count > 0; // If the detection zone has a collider, set hasTarget to true
     }
 
     // ...
 }
 ```
 
+10. In the **Slime > Slime Controller**, set the **Detection Zone** to the **Detection Zone** object.
+
+11. In the **SlimeController** script, implement the following code:
 
 ```cs
 using System.Collections;
@@ -248,6 +269,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchController))]
 public class SlimeController : MonoBehaviour
 {
+    // ...
+    public float walkStopRate = 0.05f; // The rate at which the slime stops walking. You should experiment with this value
     // ...
 
     public bool CanMove 
@@ -270,7 +293,8 @@ public class SlimeController : MonoBehaviour
         }
         else 
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            // Slowly stop the slime from walking
+            rb.velocity = new Vector2(Mathf.Lerp(rb.velocity.x, 0, walkStopRate), rb.velocity.y);
         }
     }
 
