@@ -1,0 +1,42 @@
+# Marking Rubric
+
+### Code Quality and Best Practices (Individual) - 30%
+
+| **Criteria**                                       | **5**                                              | **4**                                               | **3-2**                                               | **1-0**                                               |
+| --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| **.gitignore Usage**                               | .gitignore file is present and correctly configured. | Minor issues in .gitignore configuration.           | Significant issues in .gitignore configuration.    | Missing or incorrect .gitignore file.               |
+| **Naming Conventions**                              | Consistent and appropriate naming throughout files, variables, methods, and classes. | Minor inconsistencies in naming conventions.       | Significant inconsistencies in naming conventions. | Naming conventions are not followed.                |
+| **Idiomatic Use**                             | Effective use of control flow, data structures, and in-built functions in an idiomatic manner. | Some instances of non-idiomatic code or inefficient use. | Significant non-idiomatic code affecting efficiency. | Poor use of control flow, data structures, or functions. |                       |
+| **Algorithmic Efficiency**                          | Efficient algorithmic approach is demonstrated.       | Minor inefficiencies in the algorithmic approach.  | Significant inefficiencies in the algorithmic approach. | Poor or non-efficient algorithmic approach.        |
+| **Modularity**                                      | Sufficient modularity is demonstrated, with well-organised and encapsulated code. | Minor issues in modularity.                       | Significant issues in modularity.                  | Lack of modularity, code is not well-organised.     |
+| **Comments**                     | Each file contains comments at the top, following the provided example. | Minor issues in comments.       | Significant issues in comments. | Missing or incorrect comments.  |
+| **Code Formatting**                                | Code is consistently and appropriately formatted.    | Minor inconsistencies in code formatting.         | Significant inconsistencies in code formatting.  | Poor or non-consistent code formatting.            |
+| **Dead or Unused Code**                             | No dead or unused code is present in the application. | Minor instances of dead or unused code.           | Significant instances of dead or unused code.    | Widespread presence of dead or unused code.        |
+
+# Marking Cover Sheet
+
+**Course Title:** [Course Title]
+
+**Assignment Title:** [Assignment Title]
+
+**Learner Name:** [Learner Name]
+
+**Learner ID:** [Learner ID]
+
+**Date Submitted:** [Date]
+
+# Overall Comments:
+
+[Insert overall comments and feedback here.]
+
+**Technical and Professional Proficiency: [x/50]**
+
+**Code Quality and Best Practices: [x/30]**
+
+**Documentation and Git Usage: [x/20]**
+
+**Total Marks (100%):** [Total Marks]
+
+**Assessor's Name:** [Assessor's Name]
+
+*Note: This cover sheet is to be completed and submitted with the assignment.*
