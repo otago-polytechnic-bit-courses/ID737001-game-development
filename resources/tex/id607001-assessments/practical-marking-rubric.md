@@ -1,42 +1,21 @@
 # Marking Rubric
 
-### Functionality: REST API - 25%
+### Functionality: Backend - 30%
 
 | **Criteria**                                       | **5**                                              | **4**                                               | **3-2**                                               | **1-0**                                               |
 | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| **Development and Environment**              | API seamlessly runs in both development and production environments without modification. | Minor issues in environment compatibility.        | Significant issues in environment compatibility. | API struggles to run in development or production environments. |
-| **Model Development**                        | Six models are developed, each with a minimum of four fields, demonstrating diverse data types. | Minor issues in model development, lacking diversity or meeting the minimum requirements. | Significant issues in model development, failing to meet the minimum requirements. | Models are missing or poorly developed.                |
-| **Relationships Between Models**            | Six relationships between models are established, showcasing a clear understanding of associations. | Minor issues in establishing relationships.       | Significant issues in establishing relationships. | Relationships between models are missing or incorrectly defined. |
-| **Enum Field in Model**                      | One model includes an enum field, demonstrating knowledge and implementation. | Minor issues in implementing an enum field.       | Significant issues in implementing an enum field. | No enum field is implemented.                        |
-| **Controller and Route Files**              | A controller and route file exist for each model, providing necessary operations (POST, GET all, GET one, PUT, DELETE). | Minor issues in the implementation of controllers and routes. | Significant issues in the implementation of controllers and routes. | Missing or incomplete controllers and routes.         |
-| **Success/Failure Messages and Status Codes** | Appropriate success and failure messages, along with correct status codes, are returned for each operation. | Minor issues in message or status code accuracy.  | Significant issues in message or status code accuracy. | Messages or status codes are inconsistent or incorrect. |
-| **Filtering and Sorting**                   | Data can be filtered and sorted using query parameters for all fields in ascending and descending order. | Minor issues in filtering or sorting implementation. | Significant issues in filtering or sorting implementation. | Filtering or sorting is not working as expected.      |
-| **Pagination**                               | Data is paginated using query parameters, with a default of 25 items per page. | Minor issues in pagination implementation.       | Significant issues in pagination implementation. | Pagination is not functioning correctly.              |
-| **Endpoint Validation and Index Route**     | Proper validation for each field using Joi during creation and updating. Index route displays all existing routes. | Minor issues in validation or missing some validations. | Significant issues in validation or missing many validations. | Validation is incomplete or missing, and index route is not displaying routes. |
-| **Database Storage and Deployment**         | Data is stored in a PostgreSQL database on Render. API is deployed as a web service on Render. | Minor issues in database storage or deployment.  | Significant issues in database storage or deployment. | Data is not stored in PostgreSQL, or API deployment on Render is unsuccessful. |
+| **Environment**                  | Backend can run in development without modification.  | Requires minor modifications for development.         | Requires significant modifications for development.  | Backend cannot run in development without modification. |
+| **Google APIs Client Library**                       | Google APIs Node.js Client library is effectively used to interact with the Google Drive API. | Minor issues in the usage of Google APIs Node.js Client library. | Significant issues in the usage of Google APIs Node.js Client library. | Google APIs Node.js Client library is not effectively used. |
+| **Endpoints**        | Endpoints for uploading and downloading game builds to/from Google Drive are fully implemented. | Some issues with endpoint implementation.             | Significant issues with endpoint implementation.      | Endpoints for uploading/downloading builds are not implemented. |
+| **Authentication**                   | Proper OAuth 2.0 authentication is implemented including storing client id, client secret, redirect uri, and refresh token in a .env file. | Minor issues with OAuth 2.0 authentication.           | Significant issues with OAuth 2.0 authentication.    | OAuth 2.0 authentication is not properly implemented. |
 
-### Functionality: CRUD Application - 20%
+### Functionality: Frontend - 20%
 
 | **Criteria**                                       | **5**                                              | **4**                                               | **3-2**                                               | **1-0**                                               |
 | --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| **Development and Environment**              | Application seamlessly runs in the development environment without modification. | Minor issues in environment compatibility.        | Significant issues in environment compatibility. | Application struggles to run in development environment. |
-| **Integration with REST API**               | Requests data from four API resource groups using Axios. Implements CRUD operations effectively. | Minor issues in integration or incomplete CRUD functionality. | Significant issues in integration or incomplete CRUD functionality. | Fails to integrate with the REST API or lacks essential CRUD functionality. |
-| **Create Operation**                        | Successfully creates new data via the REST API.      | Minor issues in the create operation.             | Significant issues in the create operation.        | Create operation is not working as expected.         |
-| **Read/View Operation**                     | Effectively reads/views data from the REST API.     | Minor issues in the read/view operation.          | Significant issues in the read/view operation.    | Read/view operation is not working as expected.      |
-| **Update Operation**                        | Successfully updates data via the REST API.         | Minor issues in the update operation.             | Significant issues in the update operation.       | Update operation is not working as expected.         |
-| **Delete Operation**                        | Deletes REST API data with user confirmation using the confirm() JavaScript function. | Minor issues in the delete operation or confirmation process. | Significant issues in the delete operation or confirmation process. | Delete operation or confirmation process is not working as expected. |
-| **Validation Error Handling**               | Gracefully handles incorrectly formatted form field values with validation error messages. | Minor issues in validation error handling.       | Significant issues in validation error handling. | Validation error handling is not working as expected. |
-| **UI Design and Style**                     | UI is visually attractive with a coherent graphical theme and style using Reactstrap. | Minor issues in UI design or style.              | Significant issues in UI design or style.         | UI design or style is not visually attractive or lacks coherence. |
-
-### Functionality: Scripts - 5%
-
-| **Criteria**                                       | **5**                                              | **4**                                               | **3-2**                                               | **1-0**                                               |
-| --------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
-| **Run REST API and CRUD Application Locally** | Successfully run both REST API and CRUD application locally without issues. | Minor issues or gaps in running either REST API or CRUD application locally. | Significant issues or incomplete execution of either REST API or CRUD application locally. | No or inadequate execution of both REST API and CRUD application locally. |
-| **Create and Apply Prisma Migration**        | Successfully create and apply a migration using Prisma. | Minor issues or gaps in creating and applying Prisma migration. | Significant issues or incomplete creation and application of Prisma migration. | No or inadequate creation and application of Prisma migration. |
-| **Reset Database with Prisma**               | Successfully reset the database using Prisma. | Minor issues or gaps in resetting the database with Prisma. | Significant issues or incomplete database reset with Prisma. | No or inadequate database reset with Prisma. |
-| **Open Prisma Studio**                       | Successfully open Prisma Studio.      | Minor issues or gaps in opening Prisma Studio. | Significant issues or incomplete opening of Prisma Studio. | No or inadequate opening of Prisma Studio. |
-| **Format Code with Prettier**                | Successfully format code using Prettier. | Minor issues or gaps in code formatting with Prettier. | Significant issues or incomplete code formatting with Prettier. | No or inadequate code formatting with Prettier. |
+| **HTML Form**          | HTML form for uploading game builds to Google Drive is effectively implemented with proper security measures. | Minor issues in HTML form implementation.             | Significant issues in HTML form implementation.      | HTML form for uploading to Google Drive is not properly implemented. |
+| **HTML Table**                | List of game builds stored in Google Drive is displayed in an HTML table with necessary details and download button. | Minor issues in displaying game builds.               | Significant issues in displaying game builds.        | List of game builds is not properly displayed.       |
+| **UI Design and Style**                   | UI is visually attractive with a coherent graphical theme and style. | Minor issues in UI coherence and attractiveness.      | Significant issues in UI coherence and attractiveness. | UI lacks coherence and attractiveness.               |
 
 ### Code Quality and Best Practices - 45%
 
@@ -47,7 +26,7 @@
 | **Idiomatic Use**                             | Effective use of control flow, data structures, and in-built functions in an idiomatic manner. | Some instances of non-idiomatic code or inefficient use. | Significant non-idiomatic code affecting efficiency. | Poor use of control flow, data structures, or functions. |
 | **Efficient Algorithmic Approach**           | Implementation demonstrates a highly efficient algorithmic approach. | Some areas could be optimised for better efficiency.  | Significant optimisation opportunities are missed.   | Inefficient algorithmic approach throughout.          |
 | **Sufficient Modularity**                    | Code is well-organised and modular, enhancing maintainability and readability. | Some modules could be better organised for clarity.  | Significant issues in modularity and organisation.   | Lack of modularity, impacting code maintainability.   |
-| **Code Formatting**                         | Code is formatted using Prettier. Prettier is installed as a development dependency. | Minor issues in code formatting or Prettier setup. | Significant issues in code formatting or Prettier setup. | Code lacks proper formatting and Prettier setup.      |
+| **Code Formatting**                         | Code is formatted. | Minor issues in code formatting. | Significant issues in code formatting. | Code lacks proper formatting.      |
 | **No Dead or Unused Code**                    | Codebase contains no dead or unused code.              | Minor instances of dead or unused code.              | Significant dead or unused code in the project.      | Extensive dead or unused code affecting the project.  |
 
 ### Documentation - 5%
@@ -76,11 +55,9 @@
 
 [Insert overall comments and feedback here.]
 
-**Functionality: Frontend: [x/25]**
+**Functionality: Frontend: [x/20]**
 
-**Functionality: Backend: [x/20]**
-
-**Functionality: Scripts: [x/5]**
+**Functionality: Backend: [x/30]** 
 
 **Code Quality and Best Practices: [x/45]**
 
