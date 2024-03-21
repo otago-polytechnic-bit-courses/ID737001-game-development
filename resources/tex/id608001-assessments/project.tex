@@ -29,7 +29,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[width=50mm]{../../resources/img/logo.png}
+	\includegraphics[width=50mm]{../../../resources/img/logo.png}
 \end{figure}
 
 \title{College of Engineering, Construction and Living Sciences\\Bachelor of Information Technology\\ID608001: Intermediate Application Development Concepts\\Level 6, Credits 15\\\textbf{Project}}
@@ -37,7 +37,7 @@
 \maketitle
 
 \section*{Assessment Overview}
-In this \textbf{individual} assessment, you will design and develop two games using \textbf{Unreal Engine}. In addition, marks will be allocated for code quality and best practices and Git usage.
+In this \textbf{individual} assessment, you will design and develop \textbf{two applications}. The first application needs to be a \textbf{game} using \textbf{Unreal Engine}. The second application can be \textbf{your choice}, i.e., a game, mobile application or web application. In addition, marks will be allocated for code quality and best practices and Git usage.
 
 \section*{Learning Outcomes}
 At the successful completion of this course, learners will be able to:
@@ -72,7 +72,7 @@ All parts of your submitted assessment \textbf{must} be completely your work. Do
 The school's process concerning submissions, extensions, resubmissions and resits complies with \textbf{Otago Polytechnic | Te Pūkenga} policies. Learners can view policies on the \textbf{Otago Polytechnic | Te Pūkenga} website located at \href{https://www.op.ac.nz/about-us/governance-and-management/policies}{https://www.op.ac.nz/about-us/governance-and-management/policies}.
 
 \section*{Submission}
-You \textbf{must} submit all application files via \textbf{GitHub Classroom}. Here is the URL to the repository you will use for your submission – \href{https://classroom.github.com/a/wlzE5yYo}{https://classroom.github.com/a/wlzE5yYo}. If you do not have not one, create a \textbf{.gitignore} and add the ignored files in this resource - \href{https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore}{https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore}. The latest application files in the \textbf{main} branch will be used to mark against the \textbf{Functionality} criterion. Please test before you submit. Partial marks \textbf{will not} be given for incomplete functionality. Late submissions will incur a \textbf{10\% penalty per day}, rolling over at \textbf{5:00 PM}.
+You \textbf{must} submit all application files via \textbf{GitHub Classroom}. Here is the URL to the repository you will use for your submission – \href{https://classroom.github.com/a/P-HAHGPz}{https://classroom.github.com/a/P-HAHGPz}. If you do not have not one, create a \textbf{.gitignore}. The latest application files in the \textbf{main} branch will be used to mark against the \textbf{Functionality} criterion. Please test before you submit. Partial marks \textbf{will not} be given for incomplete functionality. Late submissions will incur a \textbf{10\% penalty per day}, rolling over at \textbf{5:00 PM}.
 
 \section*{Extensions}
 Familiarise yourself with the assessment due date. Extensions will \textbf{only} be granted if you are unable to complete the assessment by the due date because of \textbf{unforeseen circumstances outside your control}. The length of the extension granted will depend on the circumstances and \textbf{must} be negotiated with the course lecturer before the assessment due date. A medical certificate or support letter may be needed. Extensions will not be granted for poor time management or pressure of other assessments.
@@ -82,48 +82,31 @@ Resits and reassessments \textbf{are not} applicable in \textbf{ID608001: Interm
 
 \section*{Instructions}
 
-\subsection*{Functionality - Learning Outcomes 1 and 2 (50\%)}
+\subsection*{Functionality - Learning Outcomes 1 and 2 (70\%)}
 \begin{itemize} 
-
+	\item The topic for the applications is \textbf{your choice}.  
+	\item The applications needs to open without code or file structure modification in \textbf{Unreal Engine} and a technology of your choice.
+	\item Gather requirements from the client and deconstruct them into user stories.
+	\item Design and develop applications using \textbf{Unreal Engine} and a technology of your choice.
+	\item Integrate a \textbf{database} into the applications. The type of \textbf{database} is \textbf{your choice}.
+	\item Demo the applications on a web platform.
 \end{itemize}
 
-\subsection*{Code Quality and Best Practices - Learning Outcome 1 (45\%)}
+\subsection*{Code Quality and Best Practices - Learning Outcome 1 (25\%)}
 \begin{itemize}
-	\item A \textbf{Node.js} \textbf{.gitignore} file is used.
-	\item Environment variables' key is stored in the \textbf{.env.example} file. 
-  	\item Appropriate naming of files, variables, functions and resource groups.
-  \begin{itemize}
-	\item Resource groups are named with a plural noun instead of a noun or verb, i.e., \textbf{/api/v1/items} not \textbf{/api/v1/item}.
-  \end{itemize}
-	\item Idiomatic use of control flow, data structures, in-built functions, data fetching and state management design patterns.
-  \item Efficient algorithmic approach.
-  \item Sufficient modularity.
-  \item Each \textbf{controller}, \textbf{route} and \textbf{component} file has a \textbf{JSDoc} header comment located at the top of the file.
-  \item Code is formatted using \textbf{Prettier}.
-  \item Code is linted using \textbf{ESLint}.
-  \item \textbf{Prettier}, \textbf{ESLint} and \textbf{Cypress} are installed as a \textbf{development dependency}.	
-\item No dead or unused code. 
-\end{itemize}
+    \item An appropriate \textbf{.gitignore} file is used. 
+    \item Appropriate naming of files, variables, methods and classes.
+    \item Idiomatic use of values, control flow, data structures and in-built functions.
+    \item Efficient algorithmic approach.
+    \item Sufficient modularity.
+    \item Each file has an \textbf{comment} located at the top of the file. 
+    \item Formatted code.
+    \item No dead or unused code.
+\end{itemize} 
 
 \subsection*{Git Usage - Learning Outcomes 1 (5\%)}
 \begin{itemize}
 	\item A \textbf{GitHub} project board or issues to help you organise and prioritise your development work. The course lecturer needs to see consistent use of the \textbf{GitHub} project board or issues for the duration of the assessment.
-	\item Provide the following in your repository \textbf{README.md} file:
-	\begin{itemize}
-		\item A URL to your \textbf{RESTful API} as a \textbf{web service} on \textbf{Render}.
-		\item A URL to your published \textbf{RESTful API} documentation. Each route needs to be documented. Include a description, example request and example response.
-		\item How do you setup the environments, i.e., after the repository is cloned?
-		\item How do you run your \textbf{RESTful API} and \textbf{frontend applications} locally?
-		\item How do you run your \textbf{End-to-end tests}?
-		\item How do you create and apply a migration?  
-		\item How do you reset your database?
-		\item How do you seed \textbf{admin} users?
-		\item How do you open \textbf{Prisma Studio}?
-		\item How do you format your code?
-		\item How do you lint your code?		
-	\end{itemize}
-    \item Use of \textbf{Markdown}, i.e., headings, bold text, code blocks, etc.
-    \item Correct spelling and grammar.
     \item Your \textbf{Git commit messages} should:
     \begin{itemize}
       \item Reflect the context of each functional requirement change.
@@ -134,7 +117,7 @@ Resits and reassessments \textbf{are not} applicable in \textbf{ID608001: Interm
 \subsection*{Additional Information}
 \begin{itemize}
     \item \textbf{Do not} rewrite your \textbf{Git} history. It is important that the course lecturer can see how you worked on your assessment over time. 
-    \item You need to show the course lecturer the initial \textbf{GitHub} project board before you start your development work. Following this, you need to show the course lecturer your \textbf{GitHub} project board at the end of each week.
+    \item You need to show the course lecturer the initial \textbf{GitHub} project board or issues before you start your development work. Following this, you need to show the course lecturer your \textbf{GitHub} project board or issues at the end of each week.
 \end{itemize} 
 \end{document}
 \end{document}
