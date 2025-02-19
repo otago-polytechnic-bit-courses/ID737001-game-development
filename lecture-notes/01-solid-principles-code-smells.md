@@ -723,6 +723,8 @@ If you get stuck on any of the following tasks, feel free to use an AI tool perm
 
 In this task, you will use a project from a course you have previously taken. Identity at one example where you have violated the **Single Responsibility Principle** and **Open/Closed Principle**. Describe the violation and how you would refactor the code to adhere to the principle.
 
+Share how you violated the **Single Responsibility Principle** and **Open/Closed Principle** [here](https://github.com/otago-polytechnic-bit-courses/ID737001-game-development/discussions/2)
+
 ---
 
 ### Task 2
