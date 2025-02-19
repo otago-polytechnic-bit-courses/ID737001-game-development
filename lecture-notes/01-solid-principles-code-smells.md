@@ -721,7 +721,7 @@ If you get stuck on any of the following tasks, feel free to use an AI tool perm
 
 ### Task 1
 
-In this task, you will use a project from a course you have previously taken. Identity at one example where you have violated one of the **Single Responsibility Principle** and **Open/Closed Principle**. Describe the violation and how you would refactor the code to adhere to the principle.
+In this task, you will use a project from a course you have previously taken. Identity at one example where you have violated the **Single Responsibility Principle** and **Open/Closed Principle**. Describe the violation and how you would refactor the code to adhere to the principle.
 
 ---
 
