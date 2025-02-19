@@ -741,11 +741,7 @@ Here is a list of other **code smells**:
 
 Choose three of the code smells from the list above and describe what they are. 
 
----
-
-### Submission
-
-Create a new pull request and assign **grayson-orr** to review your submission. Please do not merge your own pull request.
+Share your **code smell** descriptions [here](https://github.com/otago-polytechnic-bit-courses/ID737001-game-development/discussions/2)
 
 ---
 
