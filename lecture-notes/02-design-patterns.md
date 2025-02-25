@@ -39,8 +39,10 @@ What is an example of this pattern in **Unity**?
 <details>
 
 <summary>
-Unity's prefab system is an example of the prototype pattern. Prefabs are used to create new objects by copying an existing object. Prefabs are useful when creating new objects is expensive or when the object creation process is complex.
+Click here to see the answer
 </summary>
+
+Unity's prefab system is an example of the prototype pattern. Prefabs are used to create new objects by copying an existing object. Prefabs are useful when creating new objects is expensive or when the object creation process is complex.
 
 </details>
 
@@ -50,9 +52,9 @@ What is an example of this pattern in **Unity**?
 
 <details>
 
-<summary>Unity provides a component-based architecture that allows you to create complex objects by combining simpler objects. For example, you can create a player object by combining a mesh renderer, a collider, and a script component.
+<summary>Click here to see the answer
 </summary>
-
+Unity provides a component-based architecture that allows you to create complex objects by combining simpler objects. For example, you can create a player object by combining a mesh renderer, a collider, and a script component.
 </details>
 
 ---
