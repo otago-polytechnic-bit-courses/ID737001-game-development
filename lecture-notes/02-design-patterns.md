@@ -20,11 +20,11 @@ The **KISS** principle states that most systems work best if they are kept simpl
 
 Design patterns can be classified into three categories:
 
-1. **Creational Patterns**: These design patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by controlling the object-creation process.
+1. **Creational Patterns**: These design patterns deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. **Creational design patterns** solve this problem by controlling the object-creation process.
 
-2. **Structural Patterns**: These design patterns deal with object composition. They describe how classes and objects can be composed to form larger structures. Structural design patterns simplify the structure by identifying the relationships.
+2. **Structural Patterns**: These design patterns deal with object composition. They describe how classes and objects can be composed to form larger structures. **Structural design patterns** simplify the structure by identifying the relationships.
 
-3. **Behavioral Patterns**: These design patterns deal with object collaboration. They describe how objects interact to form larger systems. Behavioural patterns identify common communication patterns between objects and realise these patterns.
+3. **Behavioral Patterns**: These design patterns deal with object collaboration. They describe how objects interact to form larger systems. **Behavioural design patterns** identify common communication patterns between objects and realise these patterns.
 
 ---
 
