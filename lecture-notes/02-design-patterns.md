@@ -84,24 +84,24 @@ Share the design pattern you used and how it helped you solve a problem [here](h
 
 ### Task Two
 
-You will be provided with a **Unity** project that contains **Pong**. Review each file and identify any issues relating to the **SOLID** principles and code smells. Refactor the code to address these issues.
-
----
-
-### Task Three
-
-In **Pong**, use the following resource - https://youtu.be/aUi9aijvpgs?si=nZ8eXWad94hnbK69 to implement a save and load system using the **Singleton** pattern.
-
----
-
-### Task Four
-
 Explain how the following design patterns can be implemented in **Pong**:
 
 1. **State**
 2. **Strategy**
 
 Share your explanation [here](https://github.com/otago-polytechnic-bit-courses/ID737001-game-development/discussions/3)
+
+---
+
+### Task Three
+
+You will be provided with a **Unity** project that contains **Pong**. Review each file and identify any issues relating to the **SOLID** principles and code smells. Refactor the code to address these issues.
+
+---
+
+### Task Four
+
+In **Pong**, use the following resource - https://youtu.be/aUi9aijvpgs?si=nZ8eXWad94hnbK69 to implement a save and load system using the **Singleton** pattern.
 
 ---
 
