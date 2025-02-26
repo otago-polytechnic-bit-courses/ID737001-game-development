@@ -101,7 +101,7 @@ You will be provided with a **Unity** project that contains **Pong**. Review eac
 
 ### Task Four
 
-In **Pong**, use the following resource - https://youtu.be/aUi9aijvpgs?si=nZ8eXWad94hnbK69 to implement a save and load system using the **Singleton** pattern.
+In **Pong**, use the following resource - https://youtu.be/aUi9aijvpgs?si=nZ8eXWad94hnbK69 to implement a high score save and load system using the **Singleton** pattern.
 
 ---
 
