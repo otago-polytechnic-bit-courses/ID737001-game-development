@@ -1,0 +1,153 @@
+# Technical and Professional Proficiency 
+
+### Group Components (25%)
+
+#### Game Engine Implementation (7%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Game Opens Without Modification** (7%) | Game opens flawlessly without any code or file structure modification in the chosen game engine. Project setup is exemplary with clear documentation. | Game opens without modification but may have minor setup inconsistencies or require basic clarification. | Game opens with minimal modifications needed. Some setup issues present but easily resolved. | Game requires significant modification to open or run. Major setup problems exist. |
+
+#### Requirements Analysis and User Stories (6%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Requirements Gathering** (3%) | Comprehensive requirements gathering with clear documentation. All stakeholder needs identified and prioritised effectively. | Good requirements gathering with most needs identified. Minor gaps in documentation or prioritisation. | Basic requirements gathering completed but lacks depth or has some missing elements. | Inadequate requirements gathering with significant gaps or poor documentation. |
+| **User Story Creation** (3%) | Excellent user stories following industry standards (As a... I want... So that...). Stories are well-defined, testable, and properly prioritised. | Good user stories with proper format and most elements well-defined. Minor issues with clarity or prioritisation. | Basic user stories created but may lack proper format, clarity, or complete acceptance criteria. | Poor user stories with significant format issues, unclear requirements, or missing elements. |
+
+#### Game Design and Development (7%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Meets Requirements** (4%) | Game fully meets all specified requirements with additional features that enhance the experience. Excellent attention to detail. | Game meets most requirements with minor omissions. Good overall implementation quality. | Game meets basic requirements but may have some missing features or implementation issues. | Game fails to meet several key requirements or has significant implementation problems. |
+| **Game Engine Utilisation** (3%) | Excellent use of chosen game engine features and best practices. Code demonstrates deep understanding of the platform. | Good use of game engine with proper implementation of most features. Shows solid understanding. | Basic use of game engine with some features properly implemented. Understanding is adequate. | Poor use of game engine with significant issues in implementation or understanding. |
+
+#### Deployment and Demonstration (5%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Itch.io Demo** (5%) | Professional deployment on itch.io with excellent presentation, clear instructions, and polished user experience. Game runs flawlessly. | Good deployment with clear presentation and instructions. Game runs well with minor issues. | Basic deployment completed but may have presentation issues or minor technical problems. | Poor deployment with significant issues, unclear presentation, or major technical problems. |
+
+### Individual Components (25%)
+
+#### Code Contribution (10%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Git Commits Quality and Quantity** (5%) | Excellent commit history with frequent, meaningful commits. Clear commit messages following best practices. Demonstrates consistent contribution throughout project. | Good commit history with regular commits and mostly clear messages. Shows steady contribution to the project. | Adequate commit history but may have periods of inactivity or unclear commit messages. Basic contribution evident. | Poor commit history with infrequent commits, unclear messages, or minimal contribution to the project. |
+| **Lines of Code Contributed** (5%) | Substantial, meaningful code contribution that significantly impacts the project. Code quality is excellent with proper structure and documentation. | Good code contribution with solid quality and proper implementation. Makes meaningful impact on project success. | Adequate code contribution but may lack depth or have quality issues. Contribution is present but limited. | Minimal code contribution with poor quality or little impact on the project outcome. |
+
+#### Code Review and Testing (8%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Code Review Quality** (4%) | Excellent code reviews with detailed, constructive feedback. Reviews demonstrate deep understanding of code quality, security, and best practices. Well-documented in GitHub issues. | Good code reviews with helpful feedback and suggestions. Shows solid understanding of code quality. Properly documented. | Basic code reviews completed but may lack depth or constructive feedback. Documentation is adequate. | Poor code reviews with minimal feedback or understanding. Documentation is inadequate or missing. |
+| **Play Testing and Feedback** (4%) | Comprehensive play testing with detailed, actionable feedback. Testing covers edge cases and user experience aspects. Excellent documentation in GitHub issues. | Good play testing with useful feedback and proper documentation. Testing covers main functionality well. | Basic play testing completed but feedback may lack detail or actionability. Documentation is adequate. | Minimal play testing with poor feedback quality or inadequate documentation. |
+
+#### Team Communication (7%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Communication Frequency and Quality** (4%) | Excellent communication with frequent, meaningful interactions. Demonstrates strong collaboration skills and proactive problem-solving. | Good communication with regular updates and collaboration. Shows solid teamwork skills. | Adequate communication but may have gaps in frequency or depth. Basic collaboration evident. | Poor communication with infrequent or superficial interactions. Limited collaboration demonstrated. |
+| **Documentation of Communication** (3%) | Comprehensive screenshots and documentation of team communication stored properly in GitHub repository. Excellent organisation and accessibility. | Good documentation with most communications captured and properly stored. Well-organised. | Basic documentation of communications but may have some gaps or organisational issues. | Poor documentation with significant gaps or improper storage of communication records. |
+
+---
+
+## Code Quality and Best Practices (Individual) - 20%
+
+### Naming Conventions (3%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Files, Variables, Methods, Classes** | Exceptional naming throughout codebase. Names are descriptive, consistent, and follow industry standards. Perfect adherence to language-specific conventions. | Good naming with minor inconsistencies. Most names are clear and follow conventions with occasional lapses. | Adequate naming but some unclear or inconsistent names present. Basic adherence to conventions. | Poor naming with many unclear, inconsistent, or non-standard names throughout the codebase. |
+
+### Idiomatic Programming (3%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Language and Game Engine Usage** | Exceptional use of programming language idioms and game engine features. Code demonstrates mastery of platform-specific best practices. | Good use of language idioms and engine features with minor deviations from best practices. | Basic use of language and engine features but misses opportunities for idiomatic solutions. | Poor understanding of language idioms and engine features. Code appears foreign to the platform. |
+
+### Algorithmic Efficiency (3%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Algorithm Design and Performance** | Excellent algorithmic choices with optimal time and space complexity. Code demonstrates deep understanding of performance implications. | Good algorithmic approach with mostly efficient solutions. Minor performance issues may exist. | Basic algorithmic approach that works but may have inefficiencies or missed optimisation opportunities. | Poor algorithmic choices with significant inefficiencies or performance problems. |
+
+### Code Architecture (4%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **SOLID Principles and Design Patterns** | Exceptional application of SOLID principles and appropriate design patterns. Code is highly modular, maintainable, and extensible. | Good application of design principles with proper modularity. Minor violations of SOLID principles may exist. | Basic modularity present but limited application of design principles. Some coupling or cohesion issues. | Poor modularity with significant violations of design principles. High coupling and low cohesion evident. |
+
+### File Documentation (2%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Header Comments** | Every file has comprehensive header comments explaining purpose, functionality, and author. Comments are professional and informative. | Most files have good header comments with clear purpose and author information. Minor gaps in documentation. | Basic header comments present but may lack detail or have inconsistent formatting across files. | Missing or inadequate header comments in many files. Poor documentation standards. |
+
+### Code Formatting (2%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Consistent Formatting** | Perfect code formatting throughout with consistent indentation, spacing, and style. Professional presentation. | Good formatting with minor inconsistencies. Code is generally well-presented and readable. | Basic formatting present but inconsistent styles or presentation issues affect readability. | Poor formatting with significant inconsistencies, making code difficult to read and unprofessional. |
+
+### Code Cleanliness (3%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **No Dead or Unused Code** | Codebase is completely clean with no dead code, unused variables, or commented-out sections. Excellent maintenance standards. | Very clean codebase with minimal dead code or unused elements. High maintenance standards evident. | Generally clean but some dead code or unused elements present. Basic maintenance evident. | Significant amounts of dead code, unused variables, or commented-out sections. Poor maintenance practices. |
+
+---
+
+## Git Usage (Individual and Group) - 10%
+
+### Group Component (5%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **GitHub Project Board/Issues** | Exceptional use of GitHub project management tools. Consistent, organised use throughout project duration with comprehensive issue tracking and board management. | Good use of project board and issues with regular updates. Minor gaps in consistency or organisation. | Basic use of GitHub tools but irregular updates or limited organisation. Some project management evident. | Minimal or poor use of GitHub project management tools. Little evidence of organised development workflow. |
+
+### Individual Component (5%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Commit Message Quality** | Excellent commit messages that clearly reflect functional requirement changes. Perfect adherence to naming conventions with descriptive, professional messages. | Good commit messages with clear context and proper formatting. Minor inconsistencies in convention adherence. | Basic commit messages that provide some context but may lack detail or consistent formatting. | Poor commit messages with unclear context, inconsistent formatting, or insufficient detail about changes. |
+
+---
+
+## Documentation (Group) - 10%
+
+### Meeting Participation (3%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Attendance and Engagement** | Excellent attendance and active participation in all group meetings with IT and Design learners. Demonstrates strong collaboration and engagement. | Good attendance with regular participation. Minor absences or limited engagement in some meetings. | Basic attendance and participation but may have several absences or minimal engagement. | Poor attendance or participation. Frequently absent or disengaged from group meetings. |
+
+### Meeting Documentation Quality (7%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Meeting Notes Completeness** | Comprehensive meeting notes covering all required elements: date/time, attendees, focus, discussions, decisions, task assignments with deadlines, and follow-up actions. Professional documentation standards. | Good meeting notes covering most required elements with clear organisation and professional presentation. Minor gaps in detail. | Basic meeting notes present but may lack some required elements or have organisational issues. Adequate documentation. | Poor meeting notes with significant missing elements, unclear organisation, or unprofessional presentation. |
+| **Rotating Note-taking** | Perfect rotation of note-taking responsibilities among all group members with clear evidence of shared responsibility. | Good rotation with most members taking turns. Minor imbalances in responsibility distribution. | Basic rotation evident but some members may have taken notes significantly more or less than others. | Poor rotation with unequal distribution of note-taking responsibilities or unclear evidence of sharing. |
+
+---
+
+## Game Development Meetup Report (Individual) - 10%
+
+### Content Quality and Depth (6%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Speaker Information and Roles** | Comprehensive coverage of speakers and their roles with insightful analysis of their contributions to the meetup. | Good coverage of speakers and roles with clear identification and basic analysis. | Basic coverage of speakers and roles but may lack detail or analysis. | Poor coverage with minimal information about speakers or their roles. |
+| **Learning and New Insights** | Exceptional reflection on new learning beyond course content. Demonstrates deep engagement and critical thinking about game development concepts. | Good reflection on new learning with clear connections to personal development and course gaps. | Basic reflection on learning but limited depth or connection to broader game development understanding. | Poor reflection with minimal evidence of learning or engagement with new concepts. |
+| **Personal Impact and Reflection** | Outstanding personal reflection addressing all required questions with depth, honesty, and insight. Shows significant self-awareness and career reflection. | Good personal reflection covering most questions with adequate depth and self-awareness. | Basic personal reflection but may lack depth in some areas or miss some required reflection points. | Poor personal reflection with superficial responses or missing key reflection elements. |
+| **Professional Insight** | Excellent analysis of career paths, industry insights, and professional development opportunities discussed at the meetup. | Good analysis of professional aspects with clear understanding of industry insights and career implications. | Basic analysis of professional elements but limited depth or connection to career development. | Poor analysis with minimal professional insight or career reflection. |
+
+### Writing Quality and Academic Standards (4%)
+
+| Criteria | A (80-100%) | B (65-79%) | C (50-64%) | D/E (0-49%) |
+|----------|-------------|------------|------------|-------------|
+| **Word Count and Structure** | Report meets 1000-word guideline with excellent structure, flow, and organisation. Professional presentation throughout. | Report meets word count with good structure and organisation. Minor issues with flow or presentation. | Report approximately meets word count but may have structural or organisational issues affecting readability. | Report significantly under/over word count with poor structure and organisation. |
+| **Grammar and Spelling** | Exceptional grammar and spelling throughout. Professional writing standards with no errors. | Good grammar and spelling with minor errors that don't affect readability. | Basic grammar and spelling but several errors present that may affect professional presentation. | Poor grammar and spelling with numerous errors that significantly impact readability and professionalism. |
+| **APA 7th Edition Compliance** | Perfect APA 7th edition formatting for all references and in-text citations. Demonstrates mastery of academic writing standards. | Good APA formatting with minor errors in citation or reference formatting. | Basic APA formatting attempted but several errors in citations or references present. | Poor or missing APA formatting with significant errors or absence of proper citations. |
+
