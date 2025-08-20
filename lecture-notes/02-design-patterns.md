@@ -65,7 +65,7 @@ Let us digest this document - [Design Patterns in Unity](https://bit.ly/4kc3EnQ)
 
 ---
 
-## Formative Assessment
+## Exercises
 
 Learning to use AI tools is an important skill. While AI tools are powerful, you **must** be aware of the following:
 

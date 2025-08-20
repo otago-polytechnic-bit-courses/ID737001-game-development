@@ -709,7 +709,7 @@ public void CalculateTotalPrice(List<Product> products)
 
 ---
 
-## Formative Assessment
+## Exercises
 
 If you get stuck on any of the following tasks, feel free to use an AI tool permitting, you are aware of the following:
 
